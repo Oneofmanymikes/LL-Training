@@ -96,8 +96,9 @@
     });
 
     /* ---- Survey Questions: reveal responses + filters on selection ---- */
-    // Each question maps to its own set of response options.
-    var SURVEY_QUESTIONS = {
+    // Pull the question -> responses map from the shared training dataset,
+    // with an inline fallback so the page still works if it isn't loaded.
+    var SURVEY_QUESTIONS = window.TRAINING_SURVEY_QUESTIONS || {
         "2029 Affiliation: ID by Volunteer": [
             "Liberal", "Possible Liberal", "PC", "NDP", "Green", "Not Liberal",
             "Not PC", "Undecided", "Won't Say", "Not Voting", "Independent"

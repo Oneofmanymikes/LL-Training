@@ -18,7 +18,23 @@ interface, built so staff can learn the layout, navigation, and tools
 | `assets/css/liberalist.css` | All styling — the app chrome, sidebar, panels, CAL & QLU |
 | `assets/js/liberalist.js` | Shared chrome interactions — sidebar, dropdowns, search |
 | `assets/js/createalist.js` | Create A List behaviours — sections, favorites, preview |
-| `assets/js/quicklookup.js` | Quick Look Up — sample data, filtering, sorting |
+| `assets/js/quicklookup.js` | Quick Look Up — filtering, sorting (uses the dataset) |
+| `assets/data/training-data.js` | **Master training dataset** — fictional people + survey data |
+
+## Training dataset (`assets/data/training-data.js`)
+
+Single source of truth for the mock, loaded before the page scripts. Exposes:
+
+- `TRAINING_SURVEY_QUESTIONS` — each survey question and its valid responses
+  (2025/2029 Affiliation ID, Volunteer Status, Sign Request).
+- `TRAINING_CONTACTS` — 10 fictional voters. Each has the Quick Look Up
+  columns plus a `survey` object: their **2025 affiliation ID**, **volunteer
+  status**, and a dated **sign history** (request → install → maintenance →
+  removal, etc.).
+
+Quick Look Up reads its rows from here, and Create A List reads the survey
+questions from here, so adding a person or response in one file updates both
+pages. **Everything is fictional — never add real voter data.**
 
 ## Running it
 

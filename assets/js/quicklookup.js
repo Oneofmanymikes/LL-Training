@@ -6,19 +6,8 @@
 (function () {
     "use strict";
 
-    // --- Fictional sample contacts (all made up) ----------------------------
-    var PEOPLE = [
-        { name: "Tremblay, Alice",   address: "14 Maple Ave",        city: "Toronto",     zip: "M4P 1A1", age: 42, phone: "(416) 555-0142", province: "ON", email: "alice.t@example.com",  poll: "012", seq: "0041" },
-        { name: "Nguyen, Binh",      address: "227 Birch St",        city: "Scarborough", zip: "M1L 2B3", age: 35, phone: "(647) 555-0188", province: "ON", email: "",                    poll: "008", seq: "" },
-        { name: "Okafor, Chidi",     address: "9 Cedar Cres",        city: "Toronto",     zip: "M4C 3C4", age: 28, phone: "(416) 555-0110", province: "ON", email: "c.okafor@example.com", poll: "012", seq: "0107" },
-        { name: "Patel, Deepa",      address: "1530 Danforth Ave",   city: "Toronto",     zip: "M4J 1N4", age: 51, phone: "",                province: "ON", email: "deepa.p@example.com",  poll: "019", seq: "0233" },
-        { name: "Smith, Evan",       address: "44 Elm St",           city: "Scarborough", zip: "M1K 5E6", age: 63, phone: "(437) 555-0173", province: "ON", email: "",                    poll: "024", seq: "0088" },
-        { name: "Rossi, Franca",     address: "88 Fir Rd",           city: "Toronto",     zip: "M4E 2F7", age: 47, phone: "(416) 555-0155", province: "ON", email: "franca.r@example.com", poll: "010", seq: "" },
-        { name: "Lee, Grace",        address: "301 Glen Manor Dr",   city: "Toronto",     zip: "M4E 2X4", age: 39, phone: "(647) 555-0129", province: "ON", email: "grace.lee@example.com",poll: "010", seq: "0150" },
-        { name: "Haddad, Hani",      address: "12 Holly Lane",       city: "Scarborough", zip: "M1N 1H2", age: 31, phone: "",                province: "ON", email: "",                    poll: "008", seq: "0061" },
-        { name: "Murphy, Ian",       address: "76 Ivy Close",        city: "Toronto",     zip: "M4M 2J9", age: 58, phone: "(416) 555-0190", province: "ON", email: "ian.m@example.com",    poll: "019", seq: "0312" },
-        { name: "Kowalski, Jana",    address: "205 Juniper Blvd",    city: "Scarborough", zip: "M1G 4K1", age: 44, phone: "(437) 555-0166", province: "ON", email: "jana.k@example.com",   poll: "024", seq: "" }
-    ];
+    // --- Fictional sample contacts (loaded from the shared training dataset) --
+    var PEOPLE = window.TRAINING_CONTACTS || [];
 
     var body = document.getElementById("qlu-body");
     var foot = document.getElementById("qlu-foot");

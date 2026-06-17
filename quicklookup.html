@@ -92,8 +92,8 @@
         <div class="app-nav">
             <div class="app-nav-container">
                 <ul class="nav nav-tabs">
-                    <li class="tab grey active"><a href="index.html">My Voters</a></li>
-                    <li class="tab tan"><a href="#">Shared Contacts</a></li>
+                    <li class="tab grey active" data-side="voterfile"><a href="#">My Voters</a></li>
+                    <li class="tab tan" data-side="shared"><a href="#">Shared Contacts</a></li>
                 </ul>
             </div>
         </div>
@@ -184,6 +184,9 @@
                 </div>
             </div>
 
+            <!-- which side of the database am I searching? -->
+            <div class="db-side-banner" id="db-side-banner"></div>
+
             <!-- ===================== Filter panel ===================== -->
             <div class="panel-filter">
                 <div class="panel-content">
@@ -220,23 +223,10 @@
             <!-- ===================== Results grid ===================== -->
             <div class="table-responsive">
                 <table class="qlu-table" id="qlu-table">
-                    <thead>
-                        <tr>
-                            <th data-sort="name">Name</th>
-                            <th data-sort="address">Address</th>
-                            <th data-sort="city">City</th>
-                            <th data-sort="zip">Postal Code</th>
-                            <th data-sort="age">Age</th>
-                            <th data-sort="phone">Phone</th>
-                            <th data-sort="province">Province</th>
-                            <th data-sort="email">Email</th>
-                            <th data-sort="poll">Old Polling Division</th>
-                            <th data-sort="seq">Election Sequence ID</th>
-                        </tr>
-                    </thead>
+                    <thead id="qlu-head"><!-- columns injected by JS per side --></thead>
                     <tbody id="qlu-body"><!-- rows injected by JS --></tbody>
                     <tfoot>
-                        <tr><td class="qlu-foot" colspan="10" id="qlu-foot"></td></tr>
+                        <tr><td class="qlu-foot" id="qlu-foot"></td></tr>
                     </tfoot>
                 </table>
             </div>

@@ -8,6 +8,43 @@
 
     var body = document.body;
 
+    /* ---- Database side context (Voter File vs Shared Contacts) --------- */
+    // The two header tabs switch which side of the database you're working in.
+    // The choice persists across pages via localStorage, and pages can react
+    // by registering a callback through window.LLTraining.onSideChange().
+    var SIDE_KEY = "llTrainingSide";
+    var sideListeners = [];
+
+    function getSide() {
+        try { return localStorage.getItem(SIDE_KEY) || "voterfile"; }
+        catch (e) { return "voterfile"; }
+    }
+    function setSide(side) {
+        try { localStorage.setItem(SIDE_KEY, side); } catch (e) {}
+        applyActiveTab(side);
+        sideListeners.forEach(function (fn) { try { fn(side); } catch (e) {} });
+    }
+    function applyActiveTab(side) {
+        document.querySelectorAll(".nav-tabs .tab").forEach(function (li) {
+            li.classList.toggle("active", li.getAttribute("data-side") === side);
+        });
+    }
+
+    window.LLTraining = window.LLTraining || {};
+    window.LLTraining.getSide = getSide;
+    window.LLTraining.setSide = setSide;
+    window.LLTraining.onSideChange = function (fn) { sideListeners.push(fn); };
+
+    // Wire the tabs and reflect the stored side on load.
+    document.querySelectorAll(".nav-tabs .tab[data-side]").forEach(function (li) {
+        var link = li.querySelector("a");
+        if (link) link.addEventListener("click", function (e) {
+            e.preventDefault();
+            setSide(li.getAttribute("data-side"));
+        });
+    });
+    applyActiveTab(getSide());
+
     /* ---- Slide-out sidebar -------------------------------------------- */
     var toggleBtn = document.getElementById("sidebar-toggle-button");
     var overlay = document.getElementById("sidebarOverlay");

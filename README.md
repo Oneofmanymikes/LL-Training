@@ -36,6 +36,21 @@ Quick Look Up reads its rows from here, and Create A List reads the survey
 questions from here, so adding a person or response in one file updates both
 pages. **Everything is fictional — never add real voter data.**
 
+### Two sides of the database
+
+The header tabs switch which side you're working in — a core VAN concept:
+
+- **My Voters → Voter File** (`TRAINING_VOTERFILE`): static electors from
+  Elections Ontario. Used to ID voters; canvass/survey responses are recorded
+  here. Core elector data is read-only.
+- **Shared Contacts** (`TRAINING_SHARED`): the committee's own volunteers,
+  donors and members — records volunteers can create and edit.
+
+The active side is stored in `localStorage` and persists across pages.
+`assets/js/liberalist.js` manages it and exposes `window.LLTraining`
+(`getSide()`, `setSide()`, `onSideChange()`). Quick Look Up switches its
+columns and data based on the active side and shows a banner explaining it.
+
 ## Running it
 
 No build step. Just open `index.html` in any browser, or serve the folder:

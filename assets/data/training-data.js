@@ -258,3 +258,66 @@ window.TRAINING_SHARED = [
         membership: "", lastDonation: null
     }
 ];
+
+/* ---- Activist Codes ------------------------------------------------------
+   Activist Codes are tags applied to contacts, grouped by type. They live on
+   the committee's data and are used heavily on the SHARED CONTACTS side
+   (fundraising, membership, email, language, cultural background).
+   `scope` is "Public" (shared statewide) or the committee that owns the code.
+   -------------------------------------------------------------------------- */
+window.TRAINING_ACTIVIST_CODES = {
+    "Cultural Background": [
+        { name: "Bengali", scope: "Public" },
+        { name: "Philippines", scope: "Public" }
+    ],
+    "Email": [
+        { name: "260601 Email", scope: "098 Sample District" },
+        { name: "Candidate Site Form", scope: "Public" },
+        { name: "Riding E-Newsletter", scope: "098 Sample District" },
+        { name: "Unsubscribe", scope: "Public" }
+    ],
+    "Fundraising": [
+        { name: "Donor 2021", scope: "098 Sample District" },
+        { name: "Future Fund 22", scope: "098 Sample District" },
+        { name: "Future Fund 23", scope: "098 Sample District" },
+        { name: "Future Fund 24", scope: "098 Sample District" },
+        { name: "Future Fund 25", scope: "098 Sample District" },
+        { name: "Future Fund 26", scope: "098 Sample District" },
+        { name: "Future Fund Current", scope: "098 Sample District" },
+        { name: "Prov Donor 22", scope: "Public" },
+        { name: "Prov Donor 23", scope: "Public" },
+        { name: "Prov Donor 24", scope: "Public" },
+        { name: "Prov Donor 25", scope: "Public" },
+        { name: "Prov Donor 26", scope: "Public" },
+        { name: "Red Trillium 22", scope: "Public" },
+        { name: "Red Trillium 23", scope: "Public" },
+        { name: "Red Trillium 24", scope: "Public" },
+        { name: "Red Trillium 25", scope: "Public" },
+        { name: "Red Trillium 26", scope: "Public" },
+        { name: "Red Trillium Current", scope: "Public" },
+        { name: "Riding Donor 2022", scope: "098 Sample District" },
+        { name: "Riding Donor 2023", scope: "098 Sample District" },
+        { name: "Riding Donor 2024", scope: "098 Sample District" },
+        { name: "Riding Donor 2025", scope: "098 Sample District" },
+        { name: "Riding Donor 2026", scope: "098 Sample District" }
+    ],
+    "Language": [
+        { name: "Arabic", scope: "Public" },
+        { name: "Chinese Cantonese", scope: "Public" },
+        { name: "Chinese Mandarin", scope: "Public" },
+        { name: "Filipino", scope: "Public" },
+        { name: "French", scope: "Public" },
+        { name: "Italian", scope: "Public" },
+        { name: "Portuguese", scope: "Public" },
+        { name: "Punjabi", scope: "Public" }
+    ],
+    "Membership": [
+        { name: "Member 2021", scope: "098 Sample District" },
+        { name: "Member 2022", scope: "098 Sample District" },
+        { name: "Member 2023", scope: "098 Sample District" },
+        { name: "Member 2024", scope: "098 Sample District" },
+        { name: "Member 2025", scope: "098 Sample District" },
+        { name: "Member 2026", scope: "098 Sample District" },
+        { name: "Member past", scope: "Public" }
+    ]
+};

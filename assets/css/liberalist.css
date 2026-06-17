@@ -442,3 +442,31 @@ input.field.sm { width: 70px; }
 .db-side-banner.shared { border-left: 4px solid var(--tab-tan); background: #faf6ec; }
 .db-side-banner strong { font-weight: 700; }
 .db-side-banner em { color: var(--text-muted); }
+
+/* Shared Contacts side gets a warm "tan" tint, mirroring the real app */
+body.tan-body { background: #f3eede; }
+body.tan-body .nav-tabs .tab.tan.active a { box-shadow: inset 0 3px 0 var(--tab-tan); }
+
+/* ==========================================================================
+   Activist Codes Picker (Create A List)
+   ========================================================================== */
+.ac-picker { font-size: 13px; }
+.ac-toolbar {
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    padding: 8px 0 10px; border-bottom: 1px solid var(--border); margin-bottom: 8px;
+}
+.ac-status { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
+.ac-status select { min-width: 120px; }
+.ac-actions { display: inline-flex; gap: 14px; }
+.ac-group { margin: 10px 0; }
+.ac-group-head {
+    display: flex; align-items: center; justify-content: space-between;
+    font-weight: 700; color: var(--text); padding: 4px 0; border-bottom: 1px solid #f0f2f4;
+}
+.ac-group-head a { font-weight: 600; font-size: 12px; }
+.ac-code {
+    display: flex; align-items: center; gap: 6px;
+    padding: 3px 0 3px 8px; font-weight: 400;
+}
+.ac-code:hover { background: #f7f9fb; }
+.ac-scope { color: var(--text-muted); }

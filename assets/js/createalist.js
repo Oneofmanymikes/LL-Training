@@ -176,4 +176,58 @@
             sqDetail.closest(".page-section").classList.add("highlighted");
         });
     }
+
+    /* ---- Activist Codes Picker: grouped, checkable list --------------- */
+    // Activist Codes come from the shared training dataset, grouped by type
+    // (Cultural Background, Email, Fundraising, Language, Membership...).
+    var ACTIVIST_CODES = window.TRAINING_ACTIVIST_CODES || {};
+    var acPicker = document.getElementById("ac-picker");
+
+    function renderActivistPicker() {
+        if (!acPicker) return;
+        var html =
+            '<div class="ac-toolbar">'
+            + '<label class="ac-status">Status'
+            +   '<select class="field"><option>Active</option><option>Archived</option></select></label>'
+            + '<span class="ac-actions">'
+            +   '<a href="#" data-ac="all">Check All</a>'
+            +   '<a href="#" data-ac="all">Check All Activists</a>'
+            +   '<a href="#" data-ac="none">Un-Check All</a>'
+            + "</span></div>";
+
+        Object.keys(ACTIVIST_CODES).forEach(function (type) {
+            html += '<div class="ac-group"><div class="ac-group-head">'
+                + "<span>" + type + "</span>"
+                + '<a href="#" data-ac="type">Check Type</a></div>';
+            ACTIVIST_CODES[type].forEach(function (code) {
+                html += '<label class="ac-code"><input type="checkbox"> '
+                    + code.name + ' <span class="ac-scope">(' + code.scope + ")</span></label>";
+            });
+            html += "</div>";
+        });
+        acPicker.innerHTML = html;
+    }
+
+    if (acPicker) {
+        renderActivistPicker();
+
+        acPicker.addEventListener("click", function (e) {
+            var link = e.target.closest("a[data-ac]");
+            if (!link) return;
+            e.preventDefault();
+            var mode = link.getAttribute("data-ac");
+            var scope = mode === "type"
+                ? link.closest(".ac-group").querySelectorAll('input[type="checkbox"]')
+                : acPicker.querySelectorAll('input[type="checkbox"]');
+            scope.forEach(function (cb) { cb.checked = (mode !== "none"); });
+            updateAcHighlight();
+        });
+
+        acPicker.addEventListener("change", updateAcHighlight);
+    }
+
+    function updateAcHighlight() {
+        var any = acPicker.querySelector('input[type="checkbox"]:checked');
+        acPicker.closest(".page-section").classList.toggle("highlighted", !!any);
+    }
 })();

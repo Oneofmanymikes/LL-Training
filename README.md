@@ -50,6 +50,16 @@ The active side is stored in `localStorage` and persists across pages.
 `assets/js/liberalist.js` manages it and exposes `window.LLTraining`
 (`getSide()`, `setSide()`, `onSideChange()`). Quick Look Up switches its
 columns and data based on the active side and shows a banner explaining it.
+The Shared Contacts side also tints the chrome with the warm "tan" theme,
+matching the real app.
+
+### Activist Codes
+
+`TRAINING_ACTIVIST_CODES` holds the committee's activist codes grouped by
+type (Cultural Background, Email, Fundraising, Language, Membership). These
+are used heavily on the Shared Contacts side. Create A List → **Activist
+Codes** renders them as a grouped, checkable picker (Status, Check All /
+Check All Activists / Un-Check All, and per-type Check Type).
 
 ## Running it
 

@@ -28,6 +28,8 @@
         document.querySelectorAll(".nav-tabs .tab").forEach(function (li) {
             li.classList.toggle("active", li.getAttribute("data-side") === side);
         });
+        // Shared Contacts side wears the warm "tan" theme, like the real app.
+        body.classList.toggle("tan-body", side === "shared");
     }
 
     window.LLTraining = window.LLTraining || {};

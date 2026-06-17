@@ -91,7 +91,7 @@
     if (runBtn) runBtn.addEventListener("click", function () {
         if (confirm("Run Search?\n\nThis would clear your current list of 1,802 people and load "
             + "the search results into My List. (Training mock — no data is changed.)")) {
-            alert("Search complete — results would now load into My List.");
+            location.href = "mylist.html";   // results load into My List
         }
     });
 

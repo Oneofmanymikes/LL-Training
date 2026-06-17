@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ontario Liberal Party - Quick Look Up (Training Mock)</title>
+    <title>Ontario Liberal Party - My List (Training Mock)</title>
     <link rel="stylesheet" href="assets/css/liberalist.css">
 </head>
 <body class="grey-body">
 
-<!-- ICON SPRITE (shared subset) -->
+<!-- ICON SPRITE (nav set + My List action toolbar) -->
 <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
     <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/></symbol>
@@ -30,6 +30,16 @@
     <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 9a6 6 0 0112 0c0 5 2 6 2 6H4s2-1 2-6M10 20a2 2 0 004 0" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <!-- action toolbar -->
+    <symbol id="i-print" viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 01-2-2v-4a2 2 0 012-2h16a2 2 0 012 2v4a2 2 0 01-2 2h-2M6 14h12v7H6z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-tags" viewBox="0 0 24 24"><path d="M3 5v6l8 8 6-6-8-8zM7 8h.01" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="i-export" viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-iphone" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2" stroke="currentColor" stroke-width="1.7" fill="none"/><path d="M11 18h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="i-calc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.7" fill="none"/><path d="M8 7h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15v3M8 18h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-split" viewBox="0 0 24 24"><path d="M3 7h7v10H3zM14 7h7v10h-7z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.7" fill="none"/><path d="M5 15V5a2 2 0 012-2h8" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-messages" viewBox="0 0 24 24"><path d="M4 5h16v10H9l-5 4z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/></symbol>
 </svg>
 
 <div id="wrapper" class="app-wrapper">
@@ -120,8 +130,8 @@
                 <div class="page-group-accordion">
                     <a class="page" href="createalist.html"><svg class="page-icon"><use href="#i-search"></use></svg><span>Create a List</span></a>
                     <a class="page" href="#"><svg class="page-icon"><use href="#i-folder"></use></svg><span>My Folders</span></a>
-                    <a class="page" href="mylist.html"><svg class="page-icon"><use href="#i-address"></use></svg><span>My List (1,802 People)</span></a>
-                    <a class="page active" href="quicklookup.html"><svg class="page-icon"><use href="#i-nameplate"></use></svg><span>Quick Look Up</span></a>
+                    <a class="page active" href="mylist.html"><svg class="page-icon"><use href="#i-address"></use></svg><span>My List</span></a>
+                    <a class="page" href="quicklookup.html"><svg class="page-icon"><use href="#i-nameplate"></use></svg><span>Quick Look Up</span></a>
                 </div>
             </div>
             <div class="page-group">
@@ -164,7 +174,7 @@
 
             <nav id="sub-nav">
                 <ol class="breadcrumbs">
-                    <li><a href="index.html">Home</a> &nbsp;›&nbsp; <span>Quick Look Up</span></li>
+                    <li><a href="index.html">Home</a> &nbsp;›&nbsp; <span>My List</span></li>
                 </ol>
                 <ul class="menu-icons">
                     <li><a class="btn-toggle" href="#">FR</a></li>
@@ -172,62 +182,92 @@
                 </ul>
             </nav>
 
-            <div class="van-header">
+            <!-- page title + header actions + stats -->
+            <div class="van-header with-actions">
                 <div class="page-title-container">
                     <div class="page-title-icon">
-                        <div class="square blue"><svg class="icon"><use href="#i-nameplate"></use></svg></div>
+                        <div class="square blue"><svg class="icon"><use href="#i-address"></use></svg></div>
                     </div>
                     <div class="page-title-group">
                         <h3 class="page-title-sub">Contacts</h3>
-                        <h5 class="page-title">Quick Look Up</h5>
+                        <h5 class="page-title">My List</h5>
                     </div>
+                </div>
+                <div class="van-header-actions">
+                    <button class="btn" id="edit-search">Edit Search <span class="nub"></span></button>
+                    <button class="btn" id="load-list">Load List</button>
+                    <button class="btn" id="save-list-as">Save List As</button>
+                    <button class="btn btn-primary" onclick="location.href='createalist.html'">New Search</button>
                 </div>
             </div>
 
-            <!-- which side of the database am I searching? -->
+            <!-- stats board -->
+            <ul class="stat-board" id="stat-board"></ul>
+
+            <!-- which side am I viewing? -->
             <div class="db-side-banner" id="db-side-banner"></div>
 
-            <!-- ===================== Filter panel ===================== -->
+            <!-- action toolbar (what you can do with this list) -->
+            <div class="mylist-toolbar" id="mylist-toolbar">
+                <a class="tool-btn" data-tool="Print"><svg class="icon"><use href="#i-print"></use></svg><span>Print</span></a>
+                <a class="tool-btn" data-tool="Labels"><svg class="icon"><use href="#i-tags"></use></svg><span>Labels</span></a>
+                <a class="tool-btn" data-tool="Calls"><svg class="icon"><use href="#i-phone"></use></svg><span>Calls</span></a>
+                <a class="tool-btn" data-tool="Export"><svg class="icon"><use href="#i-export"></use></svg><span>Export</span></a>
+                <a class="tool-btn" data-tool="MiniVAN"><svg class="icon"><use href="#i-iphone"></use></svg><span>MiniVAN</span></a>
+                <a class="tool-btn" data-tool="Counts"><svg class="icon"><use href="#i-pie"></use></svg><span>Counts</span></a>
+                <a class="tool-btn" data-tool="Reports"><svg class="icon"><use href="#i-calc"></use></svg><span>Reports</span></a>
+                <a class="tool-btn" data-tool="Cut Turf"><svg class="icon"><use href="#i-globe"></use></svg><span>Cut Turf</span></a>
+                <a class="tool-btn" data-tool="Split"><svg class="icon"><use href="#i-split"></use></svg><span>Split</span></a>
+                <a class="tool-btn" data-tool="Grid"><svg class="icon"><use href="#i-table"></use></svg><span>Grid</span></a>
+                <a class="tool-btn" data-tool="Form"><svg class="icon"><use href="#i-listalt"></use></svg><span>Form</span></a>
+                <a class="tool-btn" data-tool="Copy"><svg class="icon"><use href="#i-copy"></use></svg><span>Copy</span></a>
+                <a class="tool-btn" data-tool="Map"><svg class="icon"><use href="#i-map"></use></svg><span>Map</span></a>
+                <a class="tool-btn" data-tool="Messages"><svg class="icon"><use href="#i-messages"></use></svg><span>Messages</span></a>
+            </div>
+
+            <!-- expandable search description -->
+            <div class="panel-filter mylist-desc">
+                <div class="desc-bar" id="desc-bar">
+                    <svg class="ps-chevron"><use href="#i-chevron-right"></use></svg>
+                    <label>Description</label>
+                </div>
+                <div class="desc-body" id="desc-body" hidden>
+                    <strong>Step 1 — New Search</strong>
+                    <dl class="indented">
+                        <dt>Early Voting</dt>
+                        <dd>exclude <span class="rd-blue">Early Voted</span> and exclude <span class="rd-blue">E-Day Voted</span></dd>
+                    </dl>
+                    <dl class="indented">
+                        <dt>Registration Status</dt>
+                        <dd><span class="rd-blue">Registration Status</span> = <span class="rd-red">Registered</span> or <span class="rd-red">New Voters</span></dd>
+                    </dl>
+                    <dl class="indented">
+                        <dt>Suppressions</dt>
+                        <dd>exclude <span class="rd-blue">Deceased</span>, current voting &amp; mailing address only, exclude <span class="rd-blue">Do Not Call</span></dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- in-list filter -->
             <div class="panel-filter">
                 <div class="panel-content">
                     <div class="form-row">
-                        <div class="input-unit"><label class="input-label" for="f-last">Last Name</label><input id="f-last" type="text"></div>
-                        <div class="input-unit"><label class="input-label" for="f-first">First Name</label><input id="f-first" type="text"></div>
-                        <div class="input-unit"><label class="input-label" for="f-middle">Middle Name</label><input id="f-middle" type="text"></div>
-                        <div class="input-unit"><label class="input-label" for="f-nick">Nickname</label><input id="f-nick" type="text"></div>
-                        <div class="input-unit"><label class="input-label" for="f-vanid">Voter File VANID</label><input id="f-vanid" type="text"></div>
+                        <div class="input-unit"><label class="input-label" for="ml-last">Last Name</label><input id="ml-last" type="text"></div>
+                        <div class="input-unit"><label class="input-label" for="ml-first">First Name</label><input id="ml-first" type="text"></div>
                     </div>
-                    <div class="form-row">
-                        <div class="input-unit"><label class="input-label" for="f-street">Street Address</label><input id="f-street" type="text"></div>
-                        <div class="input-unit"><label class="input-label" for="f-city">City</label><input id="f-city" type="text"></div>
-                        <div class="input-unit"><label class="input-label" for="f-zip">Postal Code</label><input id="f-zip" type="text"></div>
-                        <div class="input-unit"><label class="input-label" for="f-addrtype">Address Type</label>
-                            <select id="f-addrtype"><option value="0"></option><option value="1">Voting</option><option value="2">Mailing</option></select></div>
-                        <div class="input-unit"><label class="input-label" for="f-elector">Elector ID</label><input id="f-elector" type="text"></div>
-                    </div>
-                    <div class="form-row">
-                        <div class="input-unit"><label class="input-label" for="f-email">Email</label><input id="f-email" type="text"></div>
-                        <div class="input-unit"><label class="input-label" for="f-phone">Phone</label><input id="f-phone" type="text"></div>
-                    </div>
-                </div>
-                <div class="filter-checks">
-                    <label><input type="checkbox" id="f-smart" checked> Use SmartName search technology</label>
                 </div>
                 <div class="panel-footer">
-                    <button class="btn" id="qlu-remember">Remember Filters</button>
-                    <button class="btn" id="qlu-clear">Clear</button>
-                    <button class="btn btn-primary" id="qlu-search">Search</button>
+                    <button class="btn" id="ml-remember">Remember Filters</button>
+                    <button class="btn btn-primary" id="ml-refresh">Refresh Results</button>
                 </div>
             </div>
 
-            <!-- ===================== Results grid ===================== -->
+            <!-- results grid -->
             <div class="table-responsive">
-                <table class="qlu-table" id="qlu-table">
-                    <thead id="qlu-head"><!-- columns injected by JS per side --></thead>
-                    <tbody id="qlu-body"><!-- rows injected by JS --></tbody>
-                    <tfoot>
-                        <tr><td class="qlu-foot" id="qlu-foot"></td></tr>
-                    </tfoot>
+                <table class="qlu-table" id="ml-table">
+                    <thead id="ml-head"></thead>
+                    <tbody id="ml-body"></tbody>
+                    <tfoot><tr><td class="qlu-foot" id="ml-foot"></td></tr></tfoot>
                 </table>
             </div>
 
@@ -242,6 +282,6 @@
 
 <script src="assets/data/training-data.js"></script>
 <script src="assets/js/liberalist.js"></script>
-<script src="assets/js/quicklookup.js"></script>
+<script src="assets/js/mylist.js"></script>
 </body>
 </html>

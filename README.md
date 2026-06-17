@@ -15,10 +15,12 @@ interface, built so staff can learn the layout, navigation, and tools
 | `index.html` | The **Main Menu** screen |
 | `createalist.html` | The **Create A List** ("Create A New Search") wizard |
 | `quicklookup.html` | The **Quick Look Up** contact search + results grid |
+| `mylist.html` | The **My List** result view (after running a search) |
 | `assets/css/liberalist.css` | All styling — the app chrome, sidebar, panels, CAL & QLU |
 | `assets/js/liberalist.js` | Shared chrome interactions — sidebar, dropdowns, search |
 | `assets/js/createalist.js` | Create A List behaviours — sections, favorites, preview |
 | `assets/js/quicklookup.js` | Quick Look Up — filtering, sorting (uses the dataset) |
+| `assets/js/mylist.js` | My List — stats, action toolbar, filter (uses the dataset) |
 | `assets/data/training-data.js` | **Master training dataset** — fictional people + survey data |
 
 ## Training dataset (`assets/data/training-data.js`)
@@ -86,7 +88,10 @@ These are the real pages linked from the menu — each becomes its own mock page
 
 - ~~Quick Look Up (`QuickLookUp.aspx`)~~ ✅ done
 - ~~Create a List (`CreateAList.aspx`)~~ ✅ done
-- My List (`MyList.aspx`)
+- ~~My List (`MyList.aspx`)~~ ✅ done
+
+The flow now connects: Main Menu → Create a List → **Run Search** lands on
+My List; the sidebar and menu cards link the pages together.
 - Grid View / Form View / Quick Mark (data entry)
 - Canvass Results, Turfs, Virtual Phone Bank
 - Counts and Crosstabs, Report Manager

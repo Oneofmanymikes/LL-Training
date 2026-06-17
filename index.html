@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ontario Liberal Party - Main Menu (Training Mock)</title>
+    <link rel="stylesheet" href="assets/css/liberalist.css">
+</head>
+<body class="grey-body">
+
+<!-- =========================================================================
+     ICON SPRITE
+     A small inline SVG sprite stands in for the proprietary "glyphicons"
+     icon font used by the real application. Add more <symbol>s as needed.
+     ========================================================================= -->
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 3v4M5 21v-4a2 2 0 012-2h10a2 2 0 012 2v4M12 7v8M9 21h-4M19 21h-4M14 21h-4M9 5h6v2H9z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-address" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M8.5 16a3.5 3.5 0 017 0" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-nameplate" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M7 14a2.5 2.5 0 015 0M9.5 10.2a1.5 1.5 0 100-.1M14 10h4M14 13h3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-listalt" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M8 9h8M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-table" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M3 9h18M3 14h18M9 4v16M15 4v16" stroke="currentColor" stroke-width="1.4"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6c-2-1.5-5-1.5-7 0v12c2-1.5 5-1.5 7 0 2-1.5 5-1.5 7 0V6c-2-1.5-5-1.5-7 0zM12 6v12" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-charts" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" stroke="currentColor" stroke-width="1.4" fill="none"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3h3l2 5-2.5 1.5a11 11 0 005 5L21 12l-1 7c-9 0-16-7-16-16z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-pie" viewBox="0 0 24 24"><path d="M12 3v9h9a9 9 0 10-9-9z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/><path d="M21 12a9 9 0 11-9-9" stroke="currentColor" stroke-width="1.8" fill="none"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M4 21a8 8 0 0116 0" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 9a6 6 0 0112 0c0 5 2 6 2 6H4s2-1 2-6M10 20a2 2 0 004 0" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-life" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M5 5l4 4M19 5l-4 4M5 19l4-4M19 19l-4-4" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-calc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M8 7h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15v3M8 18h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-dashboard" viewBox="0 0 24 24"><path d="M3 13a9 9 0 0118 0" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M12 13l4-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M3 13h2M19 13h2M12 4v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-cargo" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7M12 11v10" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-iphone" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M11 18h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+</svg>
+
+<div id="wrapper" class="app-wrapper">
+
+    <!-- ============================ TOP APP HEADER ======================== -->
+    <header class="app-header">
+        <div class="app-nav-header">
+            <div class="app-nav-container">
+                <button class="sidebar-toggle" id="sidebar-toggle-button" title="Expand Sidebar Menu" aria-label="Toggle menu">
+                    <svg class="icon"><use href="#i-menu"></use></svg>
+                </button>
+
+                <div class="app-branding">
+                    <a href="index.html" class="app-title">
+                        <span class="logo-mark">OLP</span>
+                        <span class="logo-text">Ontario Liberal Party</span>
+                    </a>
+                </div>
+
+                <ul class="app-user-controls">
+                    <li class="dropdown" id="notifications-wrapper">
+                        <a href="#" class="dropdown-toggle" data-toggle="notif" title="Notifications">
+                            <svg class="icon"><use href="#i-bell"></use></svg>
+                            <span class="badge badge-red-pip">67</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-notifications" id="notif-menu">
+                            <li class="dashlight-item">
+                                <span class="page-title-sub">PDF</span>
+                                <p><strong>Poll 4</strong> has completed generating. <a href="#">Download File</a></p>
+                                <small class="time-ago">Jun 16 - 3:13 pm</small>
+                            </li>
+                            <li class="dashlight-item">
+                                <span class="page-title-sub">PDF</span>
+                                <p><strong>Lit Drop</strong> has completed generating. <a href="#">Download File</a></p>
+                                <small class="time-ago">Jun 14 - 3:52 pm</small>
+                            </li>
+                            <li class="dashlight-item">
+                                <span class="page-title-sub">PDF</span>
+                                <p><strong>My List</strong> has completed generating. <a href="#">Download File</a></p>
+                                <small class="time-ago">Jun 13 - 9:01 am</small>
+                            </li>
+                            <li class="dashlight-bottom">
+                                <a href="#">View 62 more&hellip;</a>
+                                <small class="dismiss-all"><a href="#">Dismiss All</a></small>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown dropdown-user">
+                        <a href="#" class="dropdown-toggle" data-toggle="user">
+                            <div class="username-info">
+                                <div class="username">Sample User</div>
+                                <div class="sub-info">098 Sample District</div>
+                            </div>
+                            <span class="nub"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right" id="user-menu">
+                            <li class="dropdown-header">
+                                <div class="profile-name">sampleuser1</div>
+                                <div class="sub-info">098 Sample District</div>
+                                <a class="switch-context" href="#">Switch</a>
+                            </li>
+                            <li><a href="#">Manage Profile</a></li>
+                            <li><a href="#">Email Preferences</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">VAN Help Center</a></li>
+                            <li><a href="#">Submit Support Request</a></li>
+                            <li><a href="#">Keyboard Shortcuts</a></li>
+                            <li><a href="#">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="app-nav">
+            <div class="app-nav-container">
+                <ul class="nav nav-tabs">
+                    <li class="tab grey active"><a href="index.html">My Voters</a></li>
+                    <li class="tab tan"><a href="#">Shared Contacts</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================ SLIDE-OUT SIDEBAR ===================== -->
+    <nav id="sidebarNavigation" class="sidebar">
+        <div id="sidebarHeader">
+            <div class="input-control">
+                <svg class="icon search-icon"><use href="#i-search"></use></svg>
+                <input type="search" id="sidebar-search-input" placeholder="Search for a page" autocomplete="off">
+            </div>
+        </div>
+        <div id="sidebarContent">
+
+            <div class="page-group">
+                <div class="page-group-accordion">
+                    <a class="page active" href="index.html"><svg class="page-icon"><use href="#i-home"></use></svg><span>Home</span></a>
+                    <a class="page active" href="index.html"><svg class="page-icon"><use href="#i-tree"></use></svg><span>Main Menu</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-people"></use></svg><span>Voter Contact</span></a>
+                </div>
+            </div>
+
+            <div class="page-group">
+                <a class="page-group-toggle" href="#"><svg class="page-group-chevron"><use href="#i-chevron-down"></use></svg><span class="page-group-name">PEOPLE</span></a>
+                <div class="page-group-accordion">
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-search"></use></svg><span>Create a List</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-folder"></use></svg><span>My Folders</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-address"></use></svg><span>My List (1,802 People)</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-nameplate"></use></svg><span>Quick Look Up</span></a>
+                </div>
+            </div>
+
+            <div class="page-group">
+                <a class="page-group-toggle" href="#"><svg class="page-group-chevron"><use href="#i-chevron-down"></use></svg><span class="page-group-name">DATA ENTRY</span></a>
+                <div class="page-group-accordion">
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-listalt"></use></svg><span>Form View</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-table"></use></svg><span>Grid View</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-book"></use></svg><span>Quick Mark</span></a>
+                </div>
+            </div>
+
+            <div class="page-group">
+                <a class="page-group-toggle" href="#"><svg class="page-group-chevron"><use href="#i-chevron-down"></use></svg><span class="page-group-name">ORGANIZING</span></a>
+                <div class="page-group-accordion">
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-charts"></use></svg><span>Canvass Results</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-globe"></use></svg><span>My Turfs</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-phone"></use></svg><span>Virtual Phone Bank</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-list"></use></svg><span>Virtual Phone Bank List</span></a>
+                </div>
+            </div>
+
+            <div class="page-group">
+                <a class="page-group-toggle" href="#"><svg class="page-group-chevron"><use href="#i-chevron-down"></use></svg><span class="page-group-name">REPORTING</span></a>
+                <div class="page-group-accordion">
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-pie"></use></svg><span>Counts and Crosstabs</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-charts"></use></svg><span>Report Manager</span></a>
+                </div>
+            </div>
+
+            <div class="page-group">
+                <a class="page-group-toggle" href="#"><svg class="page-group-chevron"><use href="#i-chevron-down"></use></svg><span class="page-group-name">HELP &amp; SUPPORT</span></a>
+                <div class="page-group-accordion">
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-chat"></use></svg><span>Send Product Feedback</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-life"></use></svg><span>VAN Help Center</span></a>
+                </div>
+            </div>
+
+            <div class="page-group">
+                <a class="page-group-toggle" href="#"><svg class="page-group-chevron"><use href="#i-chevron-down"></use></svg><span class="page-group-name">ADMIN</span></a>
+                <div class="page-group-accordion">
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-user"></use></svg><span>Users</span></a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <div id="sidebarOverlay"></div>
+
+    <!-- ============================ MAIN CONTENT ========================== -->
+    <div id="content" class="app-content">
+        <div class="app-content-inner">
+
+            <nav id="sub-nav">
+                <ol class="breadcrumbs"><li>Main Menu</li></ol>
+                <ul class="menu-icons">
+                    <li><a class="btn-toggle" href="#">FR</a></li>
+                    <li><a class="btn-toggle selected" href="#">EN</a></li>
+                </ul>
+            </nav>
+
+            <div class="van-header">
+                <div class="page-title-container">
+                    <div class="page-title-icon">
+                        <div class="square blue9"><svg class="icon"><use href="#i-home"></use></svg></div>
+                    </div>
+                    <div class="page-title-group">
+                        <h3 class="page-title-sub">Main Menu</h3>
+                        <h5 class="page-title">Welcome Sample User</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row-main-menu">
+
+                <!-- ----------------------- LEFT COLUMN ----------------------- -->
+                <div class="col-left">
+                    <div class="panel sidebar-panel">
+                        <div class="SideBarContent"><a class="SideBarLink" href="#">My Requests</a><span class="badge">0</span></div>
+                        <div class="SideBarContent"><a class="SideBarLink" href="#">My Export Files</a><span class="badge">0</span></div>
+                        <div class="SideBarContent"><a class="SideBarLink" href="#">My PDF Files</a><span class="badge van-new">4</span></div>
+                        <div class="SideBarContent"><a class="SideBarLink" href="#">Counts/Crosstabs Outputs</a><span class="badge van-new">1</span></div>
+                        <div class="SideBarContent"><a class="SideBarLink" href="#">Follow Ups</a><span class="badge">0</span></div>
+                        <div class="SideBarContent"><a class="SideBarLink" href="#">Support Requests</a><span class="badge van-new">6</span></div>
+                        <div class="SideBarContent"><a class="SideBarLink" href="#">Contact the Admin</a></div>
+                    </div>
+
+                    <div class="panel admin-panel">
+                        <header class="panel-header"><h2 class="panel-title">Administrative Menu</h2></header>
+                        <div class="SideBarCellHeader"><a class="SideBarLink" href="#">Polling Locations</a></div>
+                        <div class="admin-accordion">
+                            <div class="acc-header"><svg class="chev"><use href="#i-chevron-right"></use></svg>Reports</div>
+                            <div class="acc-body">
+                                <a class="SideBarLink" href="#">Report Formats</a>
+                                <a class="SideBarLink" href="#">Report Subformats</a>
+                            </div>
+                            <div class="acc-header"><svg class="chev"><use href="#i-chevron-right"></use></svg>Exports</div>
+                            <div class="acc-body">
+                                <a class="SideBarLink" href="#">Export Formats</a>
+                            </div>
+                            <div class="acc-header"><svg class="chev"><use href="#i-chevron-right"></use></svg>Phone Services</div>
+                            <div class="acc-body">
+                                <a class="SideBarLink" href="#">Virtual Phone Bank</a>
+                            </div>
+                            <div class="acc-header"><svg class="chev"><use href="#i-chevron-right"></use></svg>Users</div>
+                            <div class="acc-body">
+                                <a class="SideBarLink" href="#">Users</a>
+                                <a class="SideBarLink" href="#">User Groups</a>
+                            </div>
+                            <div class="acc-header"><svg class="chev"><use href="#i-chevron-right"></use></svg>Advanced</div>
+                            <div class="acc-body"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ----------------------- CENTER COLUMN --------------------- -->
+                <div class="col-center">
+
+                    <div class="panel panel-menu">
+                        <div class="panel-header"><h2 class="panel-title">Quick Look Up</h2></div>
+                        <div class="panel-content">
+                            <div class="menu-item">
+                                <a class="menu-icon" href="#"><svg class="icon"><use href="#i-nameplate"></use></svg></a>
+                                <div class="menu-body">
+                                    <a class="menu-link" href="#">Quick Look Up</a>
+                                    <p class="menu-sub">Quickly look up individual people</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-menu">
+                        <div class="panel-header"><h2 class="panel-title">Lists</h2></div>
+                        <div class="panel-content">
+                            <div class="menu-item">
+                                <a class="menu-icon" href="#"><svg class="icon"><use href="#i-search"></use></svg></a>
+                                <div class="menu-body">
+                                    <a class="menu-link" href="#">Create A New List</a>
+                                    <p class="menu-sub">Build a list of people</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-icon" href="#"><svg class="icon"><use href="#i-address"></use></svg></a>
+                                <div class="menu-body">
+                                    <a class="menu-link" href="#">Go To My List <span class="helptext">(1,802 People)</span></a>
+                                    <p class="menu-sub">View my current list of 1,802 people</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-icon" href="#"><svg class="icon"><use href="#i-folder"></use></svg></a>
+                                <div class="menu-body">
+                                    <a class="menu-link" href="#">My Folders</a>
+                                    <p class="menu-sub">Browse my saved lists and searches</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-menu">
+                        <div class="panel-header"><h2 class="panel-title">Canvassing</h2></div>
+                        <div class="panel-content">
+                            <div class="menu-item">
+                                <a class="menu-icon" href="#"><svg class="icon"><use href="#i-charts"></use></svg></a>
+                                <div class="menu-body">
+                                    <a class="menu-link" href="#">Canvass Results</a>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-icon" href="#"><svg class="icon"><use href="#i-globe"></use></svg></a>
+                                <div class="menu-body">
+                                    <a class="menu-link" href="#">Turfs</a>
+                                    <p class="menu-sub">Browse, edit and distribute turfs</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-icon" href="#"><svg class="icon"><use href="#i-iphone"></use></svg></a>
+                                <div class="menu-body">
+                                    <a class="menu-link" href="#"><svg class="chev-inline"><use href="#i-chevron-right"></use></svg>MiniVAN</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-menu">
+                        <div class="panel-header"><h2 class="panel-title">Reporting &amp; Data Analysis</h2></div>
+                        <div class="panel-content">
+                            <div class="menu-item">
+                                <a class="menu-icon" href="#"><svg class="icon"><use href="#i-dashboard"></use></svg></a>
+                                <div class="menu-body">
+                                    <a class="menu-link" href="#">Analytics Dashboards</a>
+                                    <p class="menu-sub">View Analytics Dashboards</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-icon" href="#"><svg class="icon"><use href="#i-table"></use></svg></a>
+                                <div class="menu-body">
+                                    <a class="menu-link" href="#">Report Manager</a>
+                                    <p class="menu-sub">View Reports</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-menu">
+                        <div class="panel-header"><h2 class="panel-title">Voting Data Entry</h2></div>
+                        <div class="panel-content">
+                            <div class="menu-item">
+                                <a class="menu-icon" href="#"><svg class="icon"><use href="#i-table"></use></svg></a>
+                                <div class="menu-body">
+                                    <a class="menu-link" href="#">Bingo Sheet Data Entry</a>
+                                    <p class="menu-sub">Enter vote data using a bingo sheet styled form</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-icon" href="#"><svg class="icon"><use href="#i-calc"></use></svg></a>
+                                <div class="menu-body">
+                                    <a class="menu-link" href="#">Keypad Data Entry</a>
+                                    <p class="menu-sub">Enter vote data by typing sequence numbers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ----------------------- RIGHT COLUMN ---------------------- -->
+                <div class="col-right">
+                    <div class="panel panel-menu">
+                        <div class="panel-header"><h2 class="panel-title">Load Data</h2></div>
+                        <div class="panel-content">
+                            <div class="menu-item">
+                                <a class="menu-icon" href="#"><svg class="icon"><use href="#i-book"></use></svg></a>
+                                <div class="menu-body">
+                                    <a class="menu-link" href="#">Quick Mark</a>
+                                    <p class="menu-sub">Look up person and add data on one screen</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-icon" href="#"><svg class="icon"><use href="#i-table"></use></svg></a>
+                                <div class="menu-body">
+                                    <a class="menu-link" href="#">Grid View</a>
+                                    <p class="menu-sub">Load a list to edit in Grid View</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-icon" href="#"><svg class="icon"><use href="#i-listalt"></use></svg></a>
+                                <div class="menu-body">
+                                    <a class="menu-link" href="#"><svg class="chev-inline"><use href="#i-chevron-right"></use></svg>Form View</a>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <a class="menu-icon" href="#"><svg class="icon"><use href="#i-cargo"></use></svg></a>
+                                <div class="menu-body">
+                                    <a class="menu-link" href="#"><svg class="chev-inline"><use href="#i-chevron-right"></use></svg>Run Bulk Uploads</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-menu">
+                        <div class="panel-header"><h2 class="panel-title">Quick Tasks</h2></div>
+                        <div class="panel-content">
+                            <div class="menu-item">
+                                <a class="menu-icon" href="#"><svg class="icon"><use href="#i-phone"></use></svg></a>
+                                <div class="menu-body">
+                                    <a class="menu-link" href="#">Virtual Phone Bank</a>
+                                    <p class="menu-sub">Make calls using Virtual Phone Bank</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer id="copyright">
+                <span>Training Mock &mdash; not affiliated with NGP VAN. For internal staff training only.</span>
+            </footer>
+
+        </div>
+    </div>
+
+</div><!-- /#wrapper -->
+
+<script src="assets/js/liberalist.js"></script>
+</body>
+</html>

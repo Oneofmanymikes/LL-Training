@@ -99,22 +99,35 @@ My List; clicking a person's **name** in My List or Quick Look Up opens their
 
 ### Contact Record (`contactdetails.html`)
 
-The individual profile for one person. It reads `?id=` and `?side=` from the
-URL (falling back to the active database side and the first record) and shows:
+The individual profile for one person, built to mirror the real VAN
+`ContactsDetails` layout. It reads `?id=` and `?side=` from the URL (falling
+back to the active database side and the first record) and shows:
 
-- a **contact summary header** (avatar, name, an ID/contact-type tag, phone,
-  address) tinted for whichever side you're on;
-- collapsible **page sections** — Survey Responses (their affiliation ID,
-  volunteer status and dated **sign history**), Activist Codes, Addresses,
-  Phones, Email, Voting History and an editable Notes box;
-- a narrow column with the **record-navigation** panel (Standard / Script /
-  Form view modes, jump-by-ID, Next), **Favorites**, Vital Stats, Districts and
-  the **Voter File VANID** / Contact ID block;
+- a **contact summary header** (avatar, name, an ID/contact-type tag, typed
+  phone/email/address, a Follow toggle and committee context on the Shared
+  side), tinted for whichever side you're on;
+- a full-width **data-entry control panel** — record N of M, jump by record
+  number or VAN ID, Standard / Script / Form view modes, and Back / Clear /
+  Print / Save / Next;
+- two columns, each split into a **Favorites** panel and an alphabetically
+  sorted **Other Sections** panel. Sections are collapsible; clicking a star
+  moves a section into Favorites (remembered in `localStorage`);
 - a sticky **Save All** footer.
 
-Favorite stars pin a section into the Favorites box. Everything is read from
-the shared dataset, so the Voter File and Shared Contacts sides each show the
-fields that make sense for that side.
+**The section list is side-aware, matching the real app.** Both sides share
+Activist Codes, Addresses, Contact History, Email, Name • Salutation, Notes,
+Phones, Self-Reported Demographics, Survey Responses, plus the narrow Also At
+Address, Districts, Vital Stats, VANID and Actions.
+
+- **Voter File** adds Early Voting, Election Day Polling Location, Targets and
+  Voting History.
+- **Shared Contacts** adds Attached Files, Online Forms, Past Events, Social
+  Media, Supporter Groups, Targeted Emails, Upcoming Events, Volunteer Profile,
+  and a narrow Fast Action section. Its VANID block links to the matching
+  **Voter File VANID** twin record.
+
+Sections are generated from a registry in `contactdetails.js`, so adding a
+section or changing which side it appears on is a one-line edit.
 - Grid View / Form View / Quick Mark (data entry)
 - Canvass Results, Turfs, Virtual Phone Bank
 - Counts and Crosstabs, Report Manager

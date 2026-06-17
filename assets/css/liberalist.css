@@ -614,38 +614,59 @@ body.tan-body .cs-tag { background: #faf2df; color: var(--tab-tan-text); }
     padding: 8px 10px; font: inherit; font-size: 13px; resize: vertical;
 }
 
-/* ---- narrow column: record nav + side boxes ---- */
-.record-nav {
-    background: #38465b; color: #fff; border-radius: 8px; padding: 14px; margin-bottom: 14px;
+/* ---- full-width data-entry control panel ---- */
+.control-panel {
+    display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 14px;
+    background: #fff; border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 14px; margin-bottom: 14px;
 }
-.rn-count { font-size: 13px; color: #c7d0db; margin-bottom: 10px; }
-.rn-count strong { color: #fff; }
-.rn-jump label { display: block; font-size: 12px; color: #c7d0db; margin-bottom: 4px; }
-.rn-jump-row { display: flex; gap: 6px; margin-bottom: 12px; }
-.rn-jump-row input { flex: 1; min-width: 0; padding: 6px 8px; border: 1px solid #54627a; border-radius: 4px; background: #fff; }
-.rn-views { display: flex; gap: 4px; margin-bottom: 12px; }
+.cp-left { display: flex; gap: 18px; flex-wrap: wrap; }
+.cp-field { display: flex; align-items: center; gap: 6px; }
+.cp-field label { font-size: 12px; font-weight: 600; color: var(--text-muted); }
+.cp-field input { padding: 6px 8px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px; }
+.cp-field #rn-pos-input { width: 48px; text-align: center; }
+.cp-field #rn-id-input { width: 130px; }
+.cp-of { font-size: 13px; color: var(--text-muted); }
+.cp-of strong { color: var(--text); }
+.cp-right { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+.cp-views { display: inline-flex; border: 1px solid var(--border); border-radius: 5px; overflow: hidden; }
 .rn-view {
-    flex: 1; padding: 6px 4px; border: 1px solid #54627a; background: #2e3b4e; color: #c7d0db;
-    border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 600;
+    display: inline-flex; flex-direction: column; align-items: center; gap: 2px;
+    padding: 6px 12px; border: none; border-right: 1px solid var(--border);
+    background: #fff; color: var(--text-muted); cursor: pointer; font-size: 11px; font-weight: 600;
 }
-.rn-view.active { background: #fff; color: var(--text); border-color: #fff; }
-.rn-actions-row { display: flex; gap: 6px; margin-top: 8px; }
-.rn-actions-row .btn { flex: 1; justify-content: center; }
+.rn-view:last-child { border-right: none; }
+.rn-view .icon { width: 17px; height: 17px; }
+.rn-view.active { background: var(--blue9); color: #fff; }
+.cp-nav { display: inline-flex; gap: 6px; }
+.cp-nav .btn .icon { width: 13px; height: 13px; }
+#rn-back .icon { transform: rotate(180deg); }
 
-.side-box { background: #fff; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 14px; overflow: hidden; }
-.side-box-head {
-    display: flex; align-items: center; gap: 7px;
-    padding: 10px 13px; font-weight: 700; font-size: 13px;
-    background: #f4f6f8; border-bottom: 1px solid var(--border);
+/* ---- page-section panels (Favorites / Other Sections) ---- */
+.ps-panel { margin-bottom: 16px; }
+.ps-panel-head {
+    font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px;
+    color: var(--text-muted); margin-bottom: 6px;
 }
-.side-box-head .icon { width: 16px; height: 16px; color: var(--blue9); }
-.side-box-body { padding: 10px 13px; }
-.side-box-body .cal-table td { padding: 5px 4px; font-size: 13px; }
-.side-box-body .cal-table td.van-label { width: 50%; color: var(--text-muted); }
+.ps-panel-note { font-weight: 400; text-transform: none; letter-spacing: 0; font-style: italic; margin-left: 6px; }
+.ps-panel-body:empty::after { content: ""; }
 
-.fav-list, .side-box-body ul.fav-list { list-style: none; padding: 0; margin: 0; }
-.fav-list li { padding: 4px 0; }
-.fav-list li + li { border-top: 1px solid #f0f2f4; }
+/* sub-headings + footers inside section bodies */
+.cal-table td.sub-head {
+    font-weight: 700; color: var(--text); padding-top: 10px; border-top: 1px solid var(--border);
+}
+.multi-field { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+.multi-field .field { width: auto; min-width: 70px; flex: 1; }
+.ps-foot { display: flex; gap: 8px; margin-top: 10px; }
+.ps-empty { margin: 4px 0; }
+.also-list { list-style: none; padding: 0; margin: 0; }
+.also-list li { padding: 4px 0; }
+.also-list li + li { border-top: 1px solid #f0f2f4; }
+
+/* narrow-column sections read a little more compact */
+.profile-side .page-section .cal-table td { padding: 5px 4px; font-size: 13px; }
+.profile-side .page-section .cal-table td.van-label { width: 50%; color: var(--text-muted); }
 
 /* ---- sticky save footer ---- */
 .profile-footer {

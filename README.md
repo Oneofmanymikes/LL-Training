@@ -12,9 +12,11 @@ interface, built so staff can learn the layout, navigation, and tools
 
 | File | Purpose |
 |------|---------|
-| `index.html` | The **Main Menu** screen (first page built) |
-| `assets/css/liberalist.css` | All styling — the app chrome, sidebar, panels |
-| `assets/js/liberalist.js` | Interactions — sidebar, dropdowns, accordions, search |
+| `index.html` | The **Main Menu** screen |
+| `createalist.html` | The **Create A List** ("Create A New Search") wizard |
+| `assets/css/liberalist.css` | All styling — the app chrome, sidebar, panels, CAL page |
+| `assets/js/liberalist.js` | Shared chrome interactions — sidebar, dropdowns, search |
+| `assets/js/createalist.js` | Create A List behaviours — sections, favorites, preview |
 
 ## Running it
 
@@ -40,7 +42,7 @@ python3 -m http.server 8000
 These are the real pages linked from the menu — each becomes its own mock page:
 
 - Quick Look Up (`QuickLookUp.aspx`)
-- Create a List (`CreateAList.aspx`)
+- ~~Create a List (`CreateAList.aspx`)~~ ✅ done
 - My List (`MyList.aspx`)
 - Grid View / Form View / Quick Mark (data entry)
 - Canvass Results, Turfs, Virtual Phone Bank

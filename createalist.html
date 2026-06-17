@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ontario Liberal Party - Create A New Search (Training Mock)</title>
+    <link rel="stylesheet" href="assets/css/liberalist.css">
+</head>
+<body class="grey-body">
+
+<!-- ICON SPRITE (shared set + extras used on this page) -->
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 3v4M5 21v-4a2 2 0 012-2h10a2 2 0 012 2v4M12 7v8M9 5h6v2H9z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-address" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M8.5 16a3.5 3.5 0 017 0" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-nameplate" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M7 14a2.5 2.5 0 015 0M9.5 10.2a1.5 1.5 0 100-.1M14 10h4M14 13h3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-listalt" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M8 9h8M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-table" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M3 9h18M3 14h18M9 4v16M15 4v16" stroke="currentColor" stroke-width="1.4"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6c-2-1.5-5-1.5-7 0v12c2-1.5 5-1.5 7 0 2-1.5 5-1.5 7 0V6c-2-1.5-5-1.5-7 0zM12 6v12" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-charts" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" stroke="currentColor" stroke-width="1.4" fill="none"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3h3l2 5-2.5 1.5a11 11 0 005 5L21 12l-1 7c-9 0-16-7-16-16z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-pie" viewBox="0 0 24 24"><path d="M12 3v9h9a9 9 0 10-9-9z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/><path d="M21 12a9 9 0 11-9-9" stroke="currentColor" stroke-width="1.8" fill="none"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M4 21a8 8 0 0116 0" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 9a6 6 0 0112 0c0 5 2 6 2 6H4s2-1 2-6M10 20a2 2 0 004 0" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-life" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M5 5l4 4M19 5l-4 4M5 19l4-4M19 19l-4-4" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.6 5.6L20 9.3l-4 4 1 6-5-2.9L7 19.3l1-6-4-4 5.4-.7z" stroke="currentColor" stroke-width="1.5" fill="currentColor" stroke-linejoin="round"/></symbol>
+    <symbol id="i-drag" viewBox="0 0 24 24"><path d="M5 8h14M5 12h14M5 16h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24"><path d="M3 5h18l-7 8v6l-4-2v-4z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" stroke="currentColor" stroke-width="1.6" fill="currentColor" stroke-linejoin="round"/></symbol>
+    <symbol id="i-dice" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="9" cy="9" r="1.3" fill="currentColor"/><circle cx="15" cy="15" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></symbol>
+</svg>
+
+<div id="wrapper" class="app-wrapper">
+
+    <!-- ============================ TOP APP HEADER ======================== -->
+    <header class="app-header">
+        <div class="app-nav-header">
+            <div class="app-nav-container">
+                <button class="sidebar-toggle" id="sidebar-toggle-button" title="Expand Sidebar Menu" aria-label="Toggle menu">
+                    <svg class="icon"><use href="#i-menu"></use></svg>
+                </button>
+                <div class="app-branding">
+                    <a href="index.html" class="app-title">
+                        <span class="logo-mark">OLP</span>
+                        <span class="logo-text">Ontario Liberal Party</span>
+                    </a>
+                </div>
+                <ul class="app-user-controls">
+                    <li class="dropdown" id="notifications-wrapper">
+                        <a href="#" class="dropdown-toggle" data-toggle="notif" title="Notifications">
+                            <svg class="icon"><use href="#i-bell"></use></svg>
+                            <span class="badge badge-red-pip">67</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-notifications" id="notif-menu">
+                            <li class="dashlight-item">
+                                <span class="page-title-sub">PDF</span>
+                                <p><strong>Poll 4</strong> has completed generating. <a href="#">Download File</a></p>
+                                <small class="time-ago">Jun 16 - 3:13 pm</small>
+                            </li>
+                            <li class="dashlight-bottom">
+                                <a href="#">View 62 more&hellip;</a>
+                                <small class="dismiss-all"><a href="#">Dismiss All</a></small>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown dropdown-user">
+                        <a href="#" class="dropdown-toggle" data-toggle="user">
+                            <div class="username-info">
+                                <div class="username">Sample User</div>
+                                <div class="sub-info">098 Sample District</div>
+                            </div>
+                            <span class="nub"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right" id="user-menu">
+                            <li class="dropdown-header">
+                                <div class="profile-name">sampleuser1</div>
+                                <div class="sub-info">098 Sample District</div>
+                                <a class="switch-context" href="#">Switch</a>
+                            </li>
+                            <li><a href="#">Manage Profile</a></li>
+                            <li><a href="#">Email Preferences</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">VAN Help Center</a></li>
+                            <li><a href="#">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="app-nav">
+            <div class="app-nav-container">
+                <ul class="nav nav-tabs">
+                    <li class="tab grey active"><a href="index.html">My Voters</a></li>
+                    <li class="tab tan"><a href="#">Shared Contacts</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================ SLIDE-OUT SIDEBAR ===================== -->
+    <nav id="sidebarNavigation" class="sidebar">
+        <div id="sidebarHeader">
+            <div class="input-control">
+                <svg class="icon search-icon"><use href="#i-search"></use></svg>
+                <input type="search" id="sidebar-search-input" placeholder="Search for a page" autocomplete="off">
+            </div>
+        </div>
+        <div id="sidebarContent">
+            <div class="page-group">
+                <div class="page-group-accordion">
+                    <a class="page" href="index.html"><svg class="page-icon"><use href="#i-home"></use></svg><span>Home</span></a>
+                    <a class="page" href="index.html"><svg class="page-icon"><use href="#i-tree"></use></svg><span>Main Menu</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-people"></use></svg><span>Voter Contact</span></a>
+                </div>
+            </div>
+            <div class="page-group">
+                <a class="page-group-toggle" href="#"><svg class="page-group-chevron"><use href="#i-chevron-down"></use></svg><span class="page-group-name">PEOPLE</span></a>
+                <div class="page-group-accordion">
+                    <a class="page active" href="createalist.html"><svg class="page-icon"><use href="#i-search"></use></svg><span>Create a List</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-folder"></use></svg><span>My Folders</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-address"></use></svg><span>My List (1,802 People)</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-nameplate"></use></svg><span>Quick Look Up</span></a>
+                </div>
+            </div>
+            <div class="page-group">
+                <a class="page-group-toggle" href="#"><svg class="page-group-chevron"><use href="#i-chevron-down"></use></svg><span class="page-group-name">DATA ENTRY</span></a>
+                <div class="page-group-accordion">
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-listalt"></use></svg><span>Form View</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-table"></use></svg><span>Grid View</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-book"></use></svg><span>Quick Mark</span></a>
+                </div>
+            </div>
+            <div class="page-group">
+                <a class="page-group-toggle" href="#"><svg class="page-group-chevron"><use href="#i-chevron-down"></use></svg><span class="page-group-name">ORGANIZING</span></a>
+                <div class="page-group-accordion">
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-charts"></use></svg><span>Canvass Results</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-globe"></use></svg><span>My Turfs</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-phone"></use></svg><span>Virtual Phone Bank</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-list"></use></svg><span>Virtual Phone Bank List</span></a>
+                </div>
+            </div>
+            <div class="page-group">
+                <a class="page-group-toggle" href="#"><svg class="page-group-chevron"><use href="#i-chevron-down"></use></svg><span class="page-group-name">REPORTING</span></a>
+                <div class="page-group-accordion">
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-pie"></use></svg><span>Counts and Crosstabs</span></a>
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-charts"></use></svg><span>Report Manager</span></a>
+                </div>
+            </div>
+            <div class="page-group">
+                <a class="page-group-toggle" href="#"><svg class="page-group-chevron"><use href="#i-chevron-down"></use></svg><span class="page-group-name">ADMIN</span></a>
+                <div class="page-group-accordion">
+                    <a class="page" href="#"><svg class="page-icon"><use href="#i-user"></use></svg><span>Users</span></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="sidebarOverlay"></div>
+
+    <!-- ============================ MAIN CONTENT ========================== -->
+    <div id="content" class="app-content">
+        <div class="app-content-inner">
+
+            <nav id="sub-nav">
+                <ol class="breadcrumbs">
+                    <li><a href="index.html">Home</a> &nbsp;›&nbsp; <span>Create A New Search</span></li>
+                </ol>
+                <ul class="menu-icons">
+                    <li><a class="btn-toggle" href="#">FR</a></li>
+                    <li><a class="btn-toggle selected" href="#">EN</a></li>
+                </ul>
+            </nav>
+
+            <!-- page title + action buttons -->
+            <div class="van-header with-actions">
+                <div class="page-title-container">
+                    <div class="page-title-icon">
+                        <div class="square blue"><svg class="icon"><use href="#i-search"></use></svg></div>
+                    </div>
+                    <div class="page-title-group">
+                        <h3 class="page-title-sub">Contacts</h3>
+                        <h5 class="page-title">Create A New Search</h5>
+                    </div>
+                </div>
+                <div class="van-header-actions">
+                    <button class="btn" onclick="location.href='createalist.html'">New Search</button>
+                    <button class="btn">Open</button>
+                    <button class="btn btn-primary">Save</button>
+                </div>
+            </div>
+
+            <!-- two columns: criteria form + search summary -->
+            <div class="row-thirds">
+
+                <!-- =================== LEFT: search criteria =================== -->
+                <div class="col-wide">
+
+                    <div class="cal-step-header">
+                        <span class="Headline">Step 1:</span>
+                        <label>(Start with anyone who meets the selected criteria)</label>
+                    </div>
+
+                    <div class="cal-section-label">Favorites</div>
+                    <div class="favorites-drop">
+                        <span class="cal-help-text">Click the stars below to move search criteria to the top.</span>
+                    </div>
+
+                    <div class="cal-section-label">Other Search Criteria</div>
+
+                    <div id="cal-sections">
+
+                        <!-- Activist Codes -->
+                        <div class="page-section collapsed" data-section="ActivistCodes">
+                            <div class="ps-heading">
+                                <svg class="ps-chevron"><use href="#i-chevron-right"></use></svg>
+                                <span class="ps-title">Activist Codes</span>
+                                <button class="ps-star" title="Mark as favorite"><svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-star"></use></svg></button>
+                                <svg class="ps-drag"><use href="#i-drag"></use></svg>
+                            </div>
+                            <div class="ps-body">
+                                <table class="cal-table"><tbody>
+                                    <tr><td class="van-label">Activist Code</td>
+                                        <td><select class="field"><option></option>
+                                            <option>Cultural Background: Sample (Public)</option>
+                                            <option>Email: Riding E-Newsletter</option>
+                                            <option>Language: French (Public)</option>
+                                            <option>Membership: Member 2021</option>
+                                            <option>Religion: Sample (Public)</option>
+                                        </select> <a href="#" onclick="return false">Show Archived</a></td></tr>
+                                </tbody></table>
+                            </div>
+                        </div>
+
+                        <!-- Addresses -->
+                        <div class="page-section collapsed" data-section="LocationGroups">
+                            <div class="ps-heading">
+                                <svg class="ps-chevron"><use href="#i-chevron-right"></use></svg>
+                                <span class="ps-title">Addresses</span>
+                                <button class="ps-star" title="Mark as favorite"><svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-star"></use></svg></button>
+                                <svg class="ps-drag"><use href="#i-drag"></use></svg>
+                            </div>
+                            <div class="ps-body">
+                                <table class="cal-table"><tbody>
+                                    <tr><td class="van-label">Status</td><td>
+                                        <select class="field"><option>Search Current Addresses</option><option>Search Previous Addresses</option></select></td></tr>
+                                    <tr><td class="van-label">Riding</td><td>
+                                        <select class="field"><option></option><option>Don Valley West</option><option>Scarborough Southwest</option></select></td></tr>
+                                    <tr><td class="van-label">Old Riding</td><td>
+                                        <select class="field"><option></option><option>Beaches-East York</option><option>Eglinton-Lawrence</option><option>Scarborough-Guildwood</option><option>Toronto Centre</option></select></td></tr>
+                                    <tr><td class="van-label">Street Name</td><td><input class="field" type="text"></td></tr>
+                                    <tr><td class="van-label">Street # From</td><td>
+                                        <input class="field sm" type="text"> To <input class="field sm" type="text">
+                                        <span class="fieldCheckRadio"><input type="checkbox" id="odd"><label for="odd">Odd Only</label></span>
+                                        <span class="fieldCheckRadio"><input type="checkbox" id="even"><label for="even">Even Only</label></span></td></tr>
+                                    <tr><td class="van-label">City</td><td><input class="field" type="text"></td></tr>
+                                    <tr><td class="van-label">Radius</td><td>
+                                        <input class="field sm" type="text"> km From Postal Code <input class="field sm" type="text"></td></tr>
+                                    <tr><td class="van-label">Added Since</td><td><input class="field sm" type="text" placeholder="dd/mm/yyyy"></td></tr>
+                                    <tr><td class="van-label">Best Addresses Only</td><td>
+                                        <select class="field"><option>Best Addresses Only</option><option>All Addresses</option></select></td></tr>
+                                </tbody></table>
+                            </div>
+                        </div>
+
+                        <!-- Age / Registration Date / Language -->
+                        <div class="page-section collapsed" data-section="AgeReg">
+                            <div class="ps-heading">
+                                <svg class="ps-chevron"><use href="#i-chevron-right"></use></svg>
+                                <span class="ps-title">Age • Registration Date • Language</span>
+                                <button class="ps-star" title="Mark as favorite"><svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-star"></use></svg></button>
+                                <svg class="ps-drag"><use href="#i-drag"></use></svg>
+                            </div>
+                            <div class="ps-body">
+                                <table class="cal-table"><tbody>
+                                    <tr><td class="van-label">Age From</td><td>
+                                        <input class="field sm" type="text"> To <input class="field sm" type="text"></td></tr>
+                                    <tr><td class="van-label">Birthday <span class="help-icon" title="Search by month and day of birth">ⓘ</span></td><td>
+                                        <select class="field"><option>--Select a Date Range Type--</option><option>Between</option><option>In the range of</option></select></td></tr>
+                                    <tr><td class="van-label">Date of Birth <span class="help-icon" title="Search by month, day and year">ⓘ</span></td><td>
+                                        <select class="field"><option>--Select a Date Range Type--</option><option>Between</option><option>In the range of</option><option>In the month of</option></select></td></tr>
+                                    <tr><td class="van-label">Zodiac Sign</td><td>
+                                        <select class="field"><option></option><option>Aries</option><option>Taurus</option><option>Gemini</option><option>Cancer</option><option>Leo</option><option>Virgo</option><option>Libra</option><option>Scorpio</option><option>Sagittarius</option><option>Capricorn</option><option>Aquarius</option><option>Pisces</option></select></td></tr>
+                                    <tr><td class="van-label">Reg Date From</td><td>
+                                        <input class="field sm" type="text" placeholder="dd/mm/yyyy"> To <input class="field sm" type="text" placeholder="dd/mm/yyyy">
+                                        <span class="fieldCheckRadio"><input type="radio" name="regtype" id="rt1"><label for="rt1">Oldest Known</label></span>
+                                        <span class="fieldCheckRadio"><input type="radio" name="regtype" id="rt2"><label for="rt2">Current</label></span></td></tr>
+                                    <tr><td class="van-label">Official Language</td><td>
+                                        <select class="field"><option></option><option>En</option><option>Fr</option></select></td></tr>
+                                </tbody></table>
+                            </div>
+                        </div>
+
+                        <!-- Canvass Status -->
+                        <div class="page-section collapsed" data-section="CanvassStatus">
+                            <div class="ps-heading">
+                                <svg class="ps-chevron"><use href="#i-chevron-right"></use></svg>
+                                <span class="ps-title">Canvass Status</span>
+                                <button class="ps-star" title="Mark as favorite"><svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-star"></use></svg></button>
+                                <svg class="ps-drag"><use href="#i-drag"></use></svg>
+                            </div>
+                            <div class="ps-body">
+                                <table class="cal-table"><tbody>
+                                    <tr><td colspan="2">
+                                        <select class="field field-inline"><option></option><option>Exclude</option><option>Include Only</option></select>
+                                        people based on the following canvass results:</td></tr>
+                                    <tr><td colspan="2">
+                                        <div class="result-grid">
+                                            <label><input type="checkbox"> Anglais</label>
+                                            <label><input type="checkbox"> French</label>
+                                            <label><input type="checkbox"> Non-Citizen</label>
+                                            <label><input type="checkbox"> Busy</label>
+                                            <label><input type="checkbox"> Hostile</label>
+                                            <label><input type="checkbox"> Not Home</label>
+                                            <label><input type="checkbox"> Call Back</label>
+                                            <label><input type="checkbox"> Inaccessible</label>
+                                            <label><input type="checkbox"> Other Language</label>
+                                            <label><input type="checkbox"> Canvassed</label>
+                                            <label><input type="checkbox"> Left Message</label>
+                                            <label><input type="checkbox"> Refused</label>
+                                            <label><input type="checkbox"> Deceased</label>
+                                            <label><input type="checkbox"> Lit Dropped</label>
+                                            <label><input type="checkbox"> Sent Email</label>
+                                            <label><input type="checkbox"> Disconnected</label>
+                                            <label><input type="checkbox"> Mailed</label>
+                                            <label><input type="checkbox"> Submitted</label>
+                                            <label><input type="checkbox"> Do Not Call</label>
+                                            <label><input type="checkbox"> Moved</label>
+                                            <label><input type="checkbox"> Texted Back</label>
+                                            <label><input type="checkbox"> No Such Address</label>
+                                            <label><input type="checkbox"> Wrong Number</label>
+                                        </div></td></tr>
+                                    <tr><td class="van-label">Input Type</td><td>
+                                        <select class="field"><option></option><option>Manual</option><option>Bulk</option><option>VPB</option><option>Mobile</option><option>Website</option></select></td></tr>
+                                    <tr><td class="van-label">Contact Type</td><td>
+                                        <select class="field"><option></option><option>Phone</option><option>Walk</option><option>Event</option><option>SMS Text</option><option>Personal Email</option></select></td></tr>
+                                    <tr><td class="van-label">Canvassed By</td><td><input class="field" type="text"></td></tr>
+                                    <tr><td class="van-label">Date Canvassed</td><td>
+                                        <select class="field"><option>--Select a Date Range Type--</option><option>Between</option><option>In the range of</option><option>In the month of</option></select></td></tr>
+                                    <tr><td class="van-label">Entered by</td><td>
+                                        <select class="field"><option></option><option>Doe, Jane</option><option>Smith, John</option><option>Volunteer, A</option></select></td></tr>
+                                    <tr><td class="van-label">Occurrences</td><td>
+                                        <input class="field sm" type="text" placeholder="0"> to <input class="field sm" type="text" placeholder="0"></td></tr>
+                                    <tr><td class="van-label">Note Text</td><td><input class="field" type="text"></td></tr>
+                                </tbody></table>
+                            </div>
+                        </div>
+
+                        <!-- Custom Contact Fields (loads on demand) -->
+                        <div class="page-section collapsed lazy" data-section="CustomFieldsDefault">
+                            <div class="ps-heading">
+                                <svg class="ps-chevron"><use href="#i-chevron-right"></use></svg>
+                                <span class="ps-title">Custom Contact Fields</span>
+                                <button class="ps-star" title="Mark as favorite"><svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-star"></use></svg></button>
+                                <svg class="ps-drag"><use href="#i-drag"></use></svg>
+                            </div>
+                            <div class="ps-body"><p class="muted-note">No custom contact fields are configured in this training database.</p></div>
+                        </div>
+
+                        <!-- Early Voting -->
+                        <div class="page-section collapsed" data-section="EarlyVoting">
+                            <div class="ps-heading">
+                                <svg class="ps-chevron"><use href="#i-chevron-right"></use></svg>
+                                <span class="ps-title">Early Voting</span>
+                                <button class="ps-star" title="Mark as favorite"><svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-star"></use></svg></button>
+                                <svg class="ps-drag"><use href="#i-drag"></use></svg>
+                            </div>
+                            <div class="ps-body">
+                                <table class="cal-table"><tbody>
+                                    <tr><td><label><input type="checkbox" checked> Exclude People Who Have "Early Voted"</label></td></tr>
+                                    <tr><td><label><input type="checkbox"> Include Only People Who Have "Early Voted"</label></td></tr>
+                                    <tr><td><label><input type="checkbox" checked> Exclude People Who Have "E-Day Voted"</label></td></tr>
+                                    <tr><td><label><input type="checkbox"> Include Only People Who Have "E-Day Voted"</label></td></tr>
+                                    <tr><td><h3>Early Voter Status</h3></td></tr>
+                                    <tr><td>
+                                        <select class="field field-inline"><option>Include Only</option><option selected>Exclude</option></select>
+                                        people who did
+                                        <select class="field field-inline"><option>All</option><option>Any</option></select>
+                                        of the following:</td></tr>
+                                    <tr><td><label><input type="checkbox"> Anyone who has "Ballot Application Requested"</label></td></tr>
+                                    <tr><td><label><input type="checkbox"> Anyone who has "Ballot Reissued"</label></td></tr>
+                                    <tr><td><label><input type="checkbox"> Anyone who has "Ballot Rejected"</label></td></tr>
+                                    <tr><td><label><input type="checkbox"> Anyone who has "Early Voted"</label></td></tr>
+                                    <tr><td><label><input type="checkbox"> Anyone who has "E-Day Voted"</label></td></tr>
+                                </tbody></table>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="page-section collapsed" data-section="EmailSource">
+                            <div class="ps-heading">
+                                <svg class="ps-chevron"><use href="#i-chevron-right"></use></svg>
+                                <span class="ps-title">Email</span>
+                                <button class="ps-star" title="Mark as favorite"><svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-star"></use></svg></button>
+                                <svg class="ps-drag"><use href="#i-drag"></use></svg>
+                            </div>
+                            <div class="ps-body">
+                                <table class="cal-table"><tbody>
+                                    <tr><td class="van-label">Date Added</td><td>
+                                        <select class="field"><option>--Select a Date Range Type--</option><option>Between</option><option>In the range of</option><option>In the month of</option></select></td></tr>
+                                    <tr><td class="van-label">Email Domain</td><td><input class="field" type="text" placeholder="e.g. gmail.com"></td></tr>
+                                    <tr><td class="van-label">Subscription Status</td><td>
+                                        <select class="field"><option></option><option>Subscribed</option><option>Unsubscribed</option></select></td></tr>
+                                </tbody></table>
+                            </div>
+                        </div>
+
+                        <!-- Household People Count -->
+                        <div class="page-section collapsed lazy" data-section="HHSexCount">
+                            <div class="ps-heading">
+                                <svg class="ps-chevron"><use href="#i-chevron-right"></use></svg>
+                                <span class="ps-title">Household People Count</span>
+                                <button class="ps-star" title="Mark as favorite"><svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-star"></use></svg></button>
+                                <svg class="ps-drag"><use href="#i-drag"></use></svg>
+                            </div>
+                            <div class="ps-body">
+                                <table class="cal-table"><tbody>
+                                    <tr><td class="van-label">Households containing</td><td><input class="field sm" type="text"> To <input class="field sm" type="text"> Men</td></tr>
+                                    <tr><td class="van-label">Households containing</td><td><input class="field sm" type="text"> To <input class="field sm" type="text"> Women</td></tr>
+                                    <tr><td class="van-label">Households containing</td><td><input class="field sm" type="text"> To <input class="field sm" type="text"> People</td></tr>
+                                </tbody></table>
+                            </div>
+                        </div>
+
+                        <!-- My Saved Lists (loads on demand) -->
+                        <div class="page-section collapsed lazy" data-section="SavedLists">
+                            <div class="ps-heading">
+                                <svg class="ps-chevron"><use href="#i-chevron-right"></use></svg>
+                                <span class="ps-title">My Saved Lists</span>
+                                <button class="ps-star" title="Mark as favorite"><svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-star"></use></svg></button>
+                                <svg class="ps-drag"><use href="#i-drag"></use></svg>
+                            </div>
+                            <div class="ps-body"><p class="muted-note">You have no saved lists in this training database yet.</p></div>
+                        </div>
+
+                        <!-- Name (loads on demand) -->
+                        <div class="page-section collapsed" data-section="Name">
+                            <div class="ps-heading">
+                                <svg class="ps-chevron"><use href="#i-chevron-right"></use></svg>
+                                <span class="ps-title">Name</span>
+                                <button class="ps-star" title="Mark as favorite"><svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-star"></use></svg></button>
+                                <svg class="ps-drag"><use href="#i-drag"></use></svg>
+                            </div>
+                            <div class="ps-body">
+                                <table class="cal-table"><tbody>
+                                    <tr><td class="van-label">First Name</td><td><input class="field" type="text"></td></tr>
+                                    <tr><td class="van-label">Last Name</td><td><input class="field" type="text"></td></tr>
+                                </tbody></table>
+                            </div>
+                        </div>
+
+                        <!-- Notes -->
+                        <div class="page-section collapsed" data-section="Notes">
+                            <div class="ps-heading">
+                                <svg class="ps-chevron"><use href="#i-chevron-right"></use></svg>
+                                <span class="ps-title">Notes</span>
+                                <button class="ps-star" title="Mark as favorite"><svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-star"></use></svg></button>
+                                <svg class="ps-drag"><use href="#i-drag"></use></svg>
+                            </div>
+                            <div class="ps-body">
+                                <table class="cal-table"><tbody>
+                                    <tr><td class="van-label">Text</td><td><input class="field" type="text" placeholder="Contains keyword or phrase..."></td></tr>
+                                    <tr><td class="van-label">Date From</td><td><input class="field sm" type="text" placeholder="dd/mm/yyyy"> To <input class="field sm" type="text" placeholder="dd/mm/yyyy"></td></tr>
+                                    <tr><td class="van-label">Entered By</td><td>
+                                        <select class="field"><option></option><option>Doe, Jane</option><option>Smith, John</option></select></td></tr>
+                                    <tr><td colspan="2"><label><input type="checkbox"> Include <em>only</em> notes that are pinned</label></td></tr>
+                                </tbody></table>
+                            </div>
+                        </div>
+
+                        <!-- Phones (loads on demand) -->
+                        <div class="page-section collapsed" data-section="Phones">
+                            <div class="ps-heading">
+                                <svg class="ps-chevron"><use href="#i-chevron-right"></use></svg>
+                                <span class="ps-title">Phones</span>
+                                <button class="ps-star" title="Mark as favorite"><svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-star"></use></svg></button>
+                                <svg class="ps-drag"><use href="#i-drag"></use></svg>
+                            </div>
+                            <div class="ps-body">
+                                <table class="cal-table"><tbody>
+                                    <tr><td class="van-label">Phone Type</td><td>
+                                        <select class="field"><option></option><option>Home</option><option>Cell</option><option>Work</option></select></td></tr>
+                                    <tr><td colspan="2"><label><input type="checkbox"> Include only people with a phone number</label></td></tr>
+                                </tbody></table>
+                            </div>
+                        </div>
+
+                        <!-- Registration Status -->
+                        <div class="page-section collapsed" data-section="VoterStatus">
+                            <div class="ps-heading">
+                                <svg class="ps-chevron"><use href="#i-chevron-right"></use></svg>
+                                <span class="ps-title">Registration Status</span>
+                                <button class="ps-star" title="Mark as favorite"><svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-star"></use></svg></button>
+                                <svg class="ps-drag"><use href="#i-drag"></use></svg>
+                            </div>
+                            <div class="ps-body">
+                                <table class="cal-table"><tbody>
+                                    <tr><td><h3>Voter Status</h3></td></tr>
+                                    <tr><td><label><input type="checkbox" checked> Registered</label></td></tr>
+                                    <tr><td><label><input type="checkbox" checked> New Voters</label></td></tr>
+                                </tbody></table>
+                            </div>
+                        </div>
+
+                        <!-- Source File Sex (loads on demand) -->
+                        <div class="page-section collapsed lazy" data-section="Sex">
+                            <div class="ps-heading">
+                                <svg class="ps-chevron"><use href="#i-chevron-right"></use></svg>
+                                <span class="ps-title">Source File Sex</span>
+                                <button class="ps-star" title="Mark as favorite"><svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-star"></use></svg></button>
+                                <svg class="ps-drag"><use href="#i-drag"></use></svg>
+                            </div>
+                            <div class="ps-body">
+                                <table class="cal-table"><tbody>
+                                    <tr><td><label><input type="checkbox"> Male</label> &nbsp; <label><input type="checkbox"> Female</label></td></tr>
+                                </tbody></table>
+                            </div>
+                        </div>
+
+                        <!-- Suppressions -->
+                        <div class="page-section collapsed" data-section="Suppressions">
+                            <div class="ps-heading">
+                                <svg class="ps-chevron"><use href="#i-chevron-right"></use></svg>
+                                <span class="ps-title">Suppressions</span>
+                                <button class="ps-star" title="Mark as favorite"><svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-star"></use></svg></button>
+                                <svg class="ps-drag"><use href="#i-drag"></use></svg>
+                            </div>
+                            <div class="ps-body">
+                                <table class="cal-table"><tbody>
+                                    <tr><td class="van-label">Include people who have</td><td>
+                                        <label><input type="checkbox" checked> Current Voting Address</label><br>
+                                        <label><input type="checkbox"> Previous Voting Address</label><br>
+                                        <label><input type="checkbox" checked> Current Mailing Address</label><br>
+                                        <label><input type="checkbox"> Previous Mailing Address</label></td></tr>
+                                    <tr><td></td><td><select class="field"><option>Exclude Deceased</option><option>Include Deceased</option><option>Deceased Only</option></select></td></tr>
+                                    <tr><td></td><td><select class="field"><option>Exclude Do Not Call</option><option>Include Do Not Call</option><option>Do Not Call Only</option></select></td></tr>
+                                    <tr><td></td><td><select class="field"><option>Exclude Do Not Email</option><option selected>Include Do Not Email</option><option>Do Not Email Only</option></select></td></tr>
+                                    <tr><td></td><td><select class="field"><option>Exclude Do Not Mail</option><option selected>Include Do Not Mail</option><option>Do Not Mail Only</option></select></td></tr>
+                                </tbody></table>
+                            </div>
+                        </div>
+
+                        <!-- Survey Questions -->
+                        <div class="page-section collapsed" data-section="SurveyQuestions">
+                            <div class="ps-heading">
+                                <svg class="ps-chevron"><use href="#i-chevron-right"></use></svg>
+                                <span class="ps-title">Survey Questions</span>
+                                <button class="ps-star" title="Mark as favorite"><svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-star"></use></svg></button>
+                                <svg class="ps-drag"><use href="#i-drag"></use></svg>
+                            </div>
+                            <div class="ps-body">
+                                <table class="cal-table"><tbody>
+                                    <tr><td class="van-label">Question</td><td>
+                                        <select class="field"><option></option>
+                                            <option>2029 Affiliation: ID by Volunteer</option>
+                                            <option>2029 Volunteer: Volunteer Status</option>
+                                            <option>2026 Action: Sign Request</option>
+                                            <option>Show Archived...</option>
+                                        </select></td></tr>
+                                </tbody></table>
+                            </div>
+                        </div>
+
+                        <!-- Targets (loads on demand) -->
+                        <div class="page-section collapsed lazy" data-section="Targets">
+                            <div class="ps-heading">
+                                <svg class="ps-chevron"><use href="#i-chevron-right"></use></svg>
+                                <span class="ps-title">Targets</span>
+                                <button class="ps-star" title="Mark as favorite"><svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-star"></use></svg></button>
+                                <svg class="ps-drag"><use href="#i-drag"></use></svg>
+                            </div>
+                            <div class="ps-body"><p class="muted-note">No targets are configured in this training database.</p></div>
+                        </div>
+
+                        <!-- Voting History (loads on demand) -->
+                        <div class="page-section collapsed lazy" data-section="VotingHistory">
+                            <div class="ps-heading">
+                                <svg class="ps-chevron"><use href="#i-chevron-right"></use></svg>
+                                <span class="ps-title">Voting History</span>
+                                <button class="ps-star" title="Mark as favorite"><svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-star"></use></svg></button>
+                                <svg class="ps-drag"><use href="#i-drag"></use></svg>
+                            </div>
+                            <div class="ps-body">
+                                <table class="cal-table"><tbody>
+                                    <tr><td class="van-label">Voted in</td><td>
+                                        <select class="field"><option></option><option>2025 General Election</option><option>2022 General Election</option><option>2021 By-Election</option></select></td></tr>
+                                </tbody></table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- =================== RIGHT: search summary ================== -->
+                <div class="col-narrow">
+                    <div class="search-summary">
+                        <div class="summary-box">
+                            <div class="summary-step">
+                                <span class="step-num">Step 1:</span>
+                                <span class="step-type">New Search</span>
+                                <div class="summary-readable">Start with anyone who meets the selected criteria.</div>
+                            </div>
+                            <div class="summary-actions">
+                                <button class="btn btn-primary btn-block" id="preview-btn">
+                                    <svg class="icon"><use href="#i-search"></use></svg> Preview My Results
+                                </button>
+                                <div class="preview-count">
+                                    <div class="big faded" id="people-count">--</div>
+                                    <div>People</div>
+                                    <ul class="preview-other" id="preview-other" hidden>
+                                        <li><span id="c-phones">--</span> Phones</li>
+                                        <li><span id="c-doors">--</span> Doors</li>
+                                        <li><span id="c-mail">--</span> Mailboxes</li>
+                                    </ul>
+                                </div>
+                                <div class="summary-buttons">
+                                    <button class="btn" id="add-step-btn"><svg class="icon"><use href="#i-plus"></use></svg> Add Step</button>
+                                    <button class="btn btn-green" id="run-btn"><svg class="icon"><use href="#i-play"></use></svg> Run Search</button>
+                                </div>
+                                <span class="overwrite-warning">Running this search will clear your current list of 1,802 people.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer id="copyright">
+                <span>Training Mock &mdash; not affiliated with NGP VAN. For internal staff training only.</span>
+            </footer>
+
+        </div>
+    </div>
+
+</div><!-- /#wrapper -->
+
+<script src="assets/js/liberalist.js"></script>
+<script src="assets/js/createalist.js"></script>
+</body>
+</html>

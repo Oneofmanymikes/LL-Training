@@ -299,3 +299,102 @@ body.sidebar-open #sidebarOverlay { display: block; }
 .admin-accordion .acc-body .SideBarLink { display: block; padding: 6px 16px 6px 0; }
 
 #copyright { margin-top: 24px; color: var(--text-muted); font-size: 12px; text-align: center; }
+
+/* ==========================================================================
+   Create A List ("Create A New Search") page
+   ========================================================================== */
+
+/* page title header with action buttons on the right */
+.van-header.with-actions { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.square.blue { background: var(--blue9); }
+.van-header-actions { display: flex; gap: 8px; align-items: center; }
+
+.btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 14px; border-radius: 5px; font-size: 14px; font-weight: 600;
+    border: 1px solid var(--border); background: #fff; color: var(--text);
+    cursor: pointer; text-decoration: none;
+}
+.btn:hover { background: #f3f5f7; text-decoration: none; }
+.btn-primary { background: var(--blue9); border-color: var(--blue9); color: #fff; }
+.btn-primary:hover { background: #285f95; }
+.btn-green { background: var(--new-green); border-color: var(--new-green); color: #fff; }
+.btn-green:hover { background: #3f8f3f; }
+.btn .icon { width: 16px; height: 16px; }
+
+/* two-column layout: criteria form (wide) + search summary (narrow) */
+.row-thirds { display: grid; grid-template-columns: 1fr 360px; gap: 18px; align-items: start; }
+@media (max-width: 980px) { .row-thirds { grid-template-columns: 1fr; } }
+
+/* step header */
+.cal-step-header {
+    background: #38465b; color: #fff;
+    border-radius: 8px 8px 0 0; padding: 12px 16px; margin-bottom: 12px;
+}
+.cal-step-header .Headline { font-weight: 700; font-size: 16px; margin-right: 6px; }
+.cal-step-header label { color: #c7d0db; font-size: 13px; }
+
+.cal-section-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; color: var(--text-muted); margin: 14px 0 8px; }
+.cal-help-text { color: var(--text-muted); font-size: 13px; font-style: italic; }
+.favorites-drop {
+    border: 1px dashed var(--border); border-radius: 8px;
+    padding: 16px; text-align: center; margin-bottom: 8px;
+}
+
+/* page sections (collapsible criteria panels) */
+.page-section { background: #fff; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+.page-section.highlighted { border-left: 3px solid var(--olp-red); }
+.ps-heading {
+    display: flex; align-items: center; gap: 8px;
+    padding: 11px 14px; cursor: pointer; user-select: none;
+}
+.ps-heading:hover { background: #f7f9fb; }
+.ps-chevron { width: 16px; height: 16px; color: var(--text-muted); transition: transform .15s; flex: none; }
+.page-section.collapsed .ps-chevron { transform: rotate(-90deg); }
+.ps-title { font-weight: 600; flex: 1; }
+.ps-star, .ps-drag { color: #c4ccd5; width: 18px; height: 18px; flex: none; background: none; border: none; cursor: pointer; padding: 0; }
+.ps-star:hover { color: #e6b800; }
+.ps-star.active { color: #e6b800; }
+.ps-drag { cursor: grab; }
+.page-section.collapsed .ps-body { display: none; }
+.ps-body { padding: 6px 14px 14px; border-top: 1px solid #f0f2f4; }
+
+/* criteria field tables */
+.cal-table { width: 100%; border-collapse: collapse; }
+.cal-table td { padding: 6px 6px; vertical-align: middle; }
+.cal-table td.van-label { width: 38%; color: var(--text); white-space: nowrap; }
+.cal-table tr + tr td { border-top: 1px solid #f5f6f8; }
+.cal-table hr { border: none; border-top: 1px solid var(--border); margin: 6px 0; }
+.cal-table h3 { font-size: 14px; margin: 8px 0 4px; }
+
+.field, .input-element {
+    padding: 6px 8px; border: 1px solid var(--border); border-radius: 4px;
+    font-size: 13px; background: #fff; color: var(--text); max-width: 100%;
+}
+select.field { min-width: 180px; }
+input.field { width: 100%; }
+input.field.sm { width: 70px; }
+.field-inline { display: inline-block; width: auto; }
+.help-icon { color: #b0b8c0; font-size: 12px; cursor: help; }
+.fieldCheckRadio { display: inline-flex; align-items: center; gap: 4px; margin-right: 12px; white-space: nowrap; }
+.result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px 12px; }
+.result-grid label { font-weight: 400; }
+.muted-note { color: var(--text-muted); font-style: italic; font-size: 12px; }
+
+/* right-hand search summary */
+.search-summary { position: sticky; top: calc(var(--header-h) + var(--tabs-h) + 16px); }
+.summary-box { background: #fff; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.summary-step { padding: 14px; border-bottom: 1px solid var(--border); }
+.summary-step .step-num { font-weight: 700; }
+.summary-step .step-type { color: var(--text-muted); }
+.summary-readable { margin-top: 6px; color: var(--text-muted); font-size: 13px; }
+
+.summary-actions { padding: 14px; }
+.btn-block { width: 100%; justify-content: center; }
+.preview-count { text-align: center; margin: 14px 0; }
+.preview-count .big { font-size: 30px; font-weight: 700; color: var(--text); }
+.preview-count .big.faded { color: #c4ccd5; }
+.preview-other { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px; color: var(--text-muted); font-size: 13px; }
+.summary-buttons { display: flex; gap: 8px; margin-top: 12px; }
+.summary-buttons .btn { flex: 1; }
+.overwrite-warning { display: block; margin-top: 10px; color: var(--text-muted); font-size: 12px; }

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ontario Liberal Party - Cut Turf (Training Mock)</title>
+    <link rel="stylesheet" href="assets/css/liberalist.css">
+</head>
+<body class="grey-body">
+
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 3v4M5 21v-4a2 2 0 012-2h10a2 2 0 012 2v4M12 7v8M9 5h6v2H9z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-address" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M8.5 16a3.5 3.5 0 017 0" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-nameplate" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M7 14a2.5 2.5 0 015 0M9.5 10.2a1.5 1.5 0 100-.1M14 10h4M14 13h3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-charts" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" stroke="currentColor" stroke-width="1.4" fill="none"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3h3l2 5-2.5 1.5a11 11 0 005 5L21 12l-1 7c-9 0-16-7-16-16z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pie" viewBox="0 0 24 24"><path d="M12 3v9h9a9 9 0 10-9-9z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/><path d="M21 12a9 9 0 11-9-9" stroke="currentColor" stroke-width="1.8" fill="none"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M4 21a8 8 0 0116 0" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 9a6 6 0 0112 0c0 5 2 6 2 6H4s2-1 2-6M10 20a2 2 0 004 0" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<div id="wrapper" class="app-wrapper">
+    <header class="app-header">
+        <div class="app-nav-header">
+            <div class="app-nav-container">
+                <button class="sidebar-toggle" id="sidebar-toggle-button" title="Expand Sidebar Menu" aria-label="Toggle menu"><svg class="icon"><use href="#i-menu"></use></svg></button>
+                <div class="app-branding"><a href="index.html" class="app-title"><span class="logo-mark">OLP</span><span class="logo-text">Ontario Liberal Party</span></a></div>
+                <ul class="app-user-controls">
+                    <li class="dropdown dropdown-user">
+                        <a href="#" class="dropdown-toggle" data-toggle="user"><div class="username-info"><div class="username">Sample User</div><div class="sub-info">098 Sample District</div></div><span class="nub"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-right" id="user-menu"><li class="dropdown-header"><div class="profile-name">sampleuser1</div></li><li><a href="#">Log Out</a></li></ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="app-nav"><div class="app-nav-container"><ul class="nav nav-tabs">
+            <li class="tab grey active" data-side="voterfile"><a href="#">My Voters</a></li>
+            <li class="tab tan" data-side="shared"><a href="#">Shared Contacts</a></li>
+        </ul></div></div>
+    </header>
+
+    <nav id="sidebarNavigation" class="sidebar">
+        <div id="sidebarHeader"><div class="input-control"><svg class="icon search-icon"><use href="#i-search"></use></svg><input type="search" id="sidebar-search-input" placeholder="Search for a page" autocomplete="off"></div></div>
+        <div id="sidebarContent">
+            <div class="page-group"><div class="page-group-accordion">
+                <a class="page" href="index.html"><svg class="page-icon"><use href="#i-home"></use></svg><span>Home</span></a>
+                <a class="page" href="index.html"><svg class="page-icon"><use href="#i-tree"></use></svg><span>Main Menu</span></a>
+            </div></div>
+            <div class="page-group">
+                <a class="page-group-toggle" href="#"><svg class="page-group-chevron"><use href="#i-chevron-down"></use></svg><span class="page-group-name">PEOPLE</span></a>
+                <div class="page-group-accordion">
+                    <a class="page" href="createalist.html"><svg class="page-icon"><use href="#i-search"></use></svg><span>Create a List</span></a>
+                    <a class="page" href="mylist.html"><svg class="page-icon"><use href="#i-address"></use></svg><span>My List</span></a>
+                    <a class="page" href="quicklookup.html"><svg class="page-icon"><use href="#i-nameplate"></use></svg><span>Quick Look Up</span></a>
+                </div>
+            </div>
+            <div class="page-group">
+                <a class="page-group-toggle" href="#"><svg class="page-group-chevron"><use href="#i-chevron-down"></use></svg><span class="page-group-name">ORGANIZING</span></a>
+                <div class="page-group-accordion">
+                    <a class="page" href="phonebank.html"><svg class="page-icon"><use href="#i-phone"></use></svg><span>Virtual Phone Bank</span></a>
+                    <a class="page active" href="turf.html"><svg class="page-icon"><use href="#i-globe"></use></svg><span>My Turfs</span></a>
+                </div>
+            </div>
+            <div class="page-group">
+                <a class="page-group-toggle" href="#"><svg class="page-group-chevron"><use href="#i-chevron-down"></use></svg><span class="page-group-name">REPORTING</span></a>
+                <div class="page-group-accordion">
+                    <a class="page" href="counts.html"><svg class="page-icon"><use href="#i-pie"></use></svg><span>Counts and Crosstabs</span></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="sidebarOverlay"></div>
+
+    <div id="content" class="app-content">
+        <div class="app-content-inner">
+            <nav id="sub-nav">
+                <ol class="breadcrumbs"><li><a href="index.html">Home</a> &nbsp;›&nbsp; <a href="mylist.html">My List</a> &nbsp;›&nbsp; <span>Cut Turf</span></li></ol>
+                <ul class="menu-icons"><li><a class="btn-toggle" href="#">FR</a></li><li><a class="btn-toggle selected" href="#">EN</a></li></ul>
+            </nav>
+
+            <div class="van-header with-actions">
+                <div class="page-title-container">
+                    <div class="page-title-icon"><div class="square blue"><svg class="icon"><use href="#i-globe"></use></svg></div></div>
+                    <div class="page-title-group"><h3 class="page-title-sub">Organizing</h3><h5 class="page-title">Cut Turf</h5></div>
+                </div>
+                <div class="van-header-actions"><button class="btn" onclick="location.href='mylist.html'">Back to My List</button></div>
+            </div>
+
+            <div class="db-side-banner" id="db-side-banner"></div>
+
+            <div class="panel-filter">
+                <div class="panel-content">
+                    <div class="form-row">
+                        <div class="input-unit"><label class="input-label" for="turf-by">Cut turf by</label>
+                            <select id="turf-by">
+                                <option value="poll">Poll</option>
+                                <option value="city">City</option>
+                                <option value="size">Equal-size packets</option>
+                            </select>
+                        </div>
+                        <div class="input-unit" id="turf-size-unit"><label class="input-label" for="turf-size">Doors per packet</label>
+                            <input type="text" id="turf-size" value="3"></div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <span class="cx-scope" id="turf-scope"></span>
+                    <button class="btn btn-primary" id="turf-cut">Cut Turfs</button>
+                </div>
+            </div>
+
+            <div class="turf-grid" id="turf-grid"></div>
+
+            <footer id="copyright"><span>Training Mock &mdash; not affiliated with NGP VAN. All people shown are fictional. For internal staff training only.</span></footer>
+        </div>
+    </div>
+</div>
+
+<script src="assets/data/training-data.js"></script>
+<script src="assets/js/currentlist.js"></script>
+<script src="assets/js/liberalist.js"></script>
+<script src="assets/js/turf.js"></script>
+</body>
+</html>

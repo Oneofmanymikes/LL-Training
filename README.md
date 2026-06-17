@@ -17,12 +17,19 @@ interface, built so staff can learn the layout, navigation, and tools
 | `quicklookup.html` | The **Quick Look Up** contact search + results grid |
 | `mylist.html` | The **My List** result view (after running a search) |
 | `contactdetails.html` | The **Contact Record** — an individual voter / contact profile |
-| `assets/css/liberalist.css` | All styling — the app chrome, sidebar, panels, CAL & QLU |
+| `counts.html` | **Counts and Crosstabs** — pivot the current list |
+| `phonebank.html` | **Virtual Phone Bank** — work the list one call at a time |
+| `turf.html` | **Cut Turf** — split the list into walk packets |
+| `assets/css/liberalist.css` | All styling — the app chrome, sidebar, panels, every page |
 | `assets/js/liberalist.js` | Shared chrome interactions — sidebar, dropdowns, search |
-| `assets/js/createalist.js` | Create A List behaviours — sections, favorites, preview |
+| `assets/js/currentlist.js` | **Shared search/current-list state** used by every list-driven page |
+| `assets/js/createalist.js` | Create A List behaviours — sections, favorites, preview, Run Search |
 | `assets/js/quicklookup.js` | Quick Look Up — filtering, sorting (uses the dataset) |
 | `assets/js/mylist.js` | My List — stats, action toolbar, filter (uses the dataset) |
 | `assets/js/contactdetails.js` | Contact Record — renders one person's profile (uses the dataset) |
+| `assets/js/counts.js` | Counts and Crosstabs — pivots the current list |
+| `assets/js/phonebank.js` | Virtual Phone Bank — script + survey entry over the list |
+| `assets/js/turf.js` | Cut Turf — groups the list into turfs |
 | `assets/data/training-data.js` | **Master training dataset** — fictional people + survey data |
 
 ## Training dataset (`assets/data/training-data.js`)
@@ -95,7 +102,26 @@ These are the real pages linked from the menu — each becomes its own mock page
 
 The flow now connects: Main Menu → Create a List → **Run Search** lands on
 My List; clicking a person's **name** in My List or Quick Look Up opens their
-**Contact Record**; the sidebar and menu cards link the pages together.
+**Contact Record**; and the My List toolbar / sidebar open **Counts and
+Crosstabs**, the **Virtual Phone Bank** and **Cut Turf** on that same list.
+
+### One list, many tools
+
+`assets/js/currentlist.js` is the single source of truth for "the list I'm
+working with." When you **Run Search** in Create a List, the selected survey
+question + responses and checked activist codes are saved as a query; My List,
+Counts, the Phone Bank and Cut Turf all read the **same filtered result** from
+it (`getList(side)`), so the whole flow stays consistent. With no search it
+falls back to the full file for the active side.
+
+- **Counts and Crosstabs** (`counts.html`) pivots the current list by one or
+  two dimensions (affiliation, volunteer status, city, age range, contact
+  type, membership…) into a counts table with row/column totals.
+- **Virtual Phone Bank** (`phonebank.html`) walks the list one call at a time:
+  who you're calling, a script, a survey question with response buttons, and
+  result-of-call dispositions, with a session tally and progress bar.
+- **Cut Turf** (`turf.html`) splits the list into walk packets — by poll, by
+  city, or into equal-size packets — and shows each turf's people and doors.
 
 ### Contact Record (`contactdetails.html`)
 
@@ -128,9 +154,16 @@ Address, Districts, Vital Stats, VANID and Actions.
 
 Sections are generated from a registry in `contactdetails.js`, so adding a
 section or changing which side it appears on is a one-line edit.
+- ~~Counts and Crosstabs (`DemographicsNew.aspx`)~~ ✅ done
+- ~~Virtual Phone Bank (`MyListVirtualPhoneBank.aspx`)~~ ✅ done
+- ~~Cut Turf / Turfs (`TurfList.aspx`)~~ ✅ done
 - Grid View / Form View / Quick Mark (data entry)
-- Canvass Results, Turfs, Virtual Phone Bank
-- Counts and Crosstabs, Report Manager
+- Canvass Results, Report Manager
+
+Behaviour for the newer screens is informed by NGP VAN's public training
+material (the VANual and MiniVANual, and state-party Votebuilder guides);
+layout still comes from pasted rendered HTML. No proprietary assets or real
+data are used.
 
 ## Conventions for adding pages
 

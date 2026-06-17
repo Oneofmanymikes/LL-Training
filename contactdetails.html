@@ -185,11 +185,14 @@
                     <div class="cs-name-row">
                         <h3 class="cs-name" id="cs-name">&nbsp;</h3>
                         <span class="cs-tag" id="cs-tag" hidden></span>
+                        <button class="cs-follow" id="cs-follow" hidden><svg class="icon"><use href="#i-star"></use></svg> Follow</button>
                     </div>
                     <ul class="cs-facts">
                         <li><svg class="icon"><use href="#i-phone"></use></svg><span id="cs-phone">&mdash;</span></li>
+                        <li id="cs-email-li" hidden><svg class="icon"><use href="#i-mail"></use></svg><span id="cs-email">&mdash;</span></li>
                         <li><svg class="icon"><use href="#i-address"></use></svg><span id="cs-address">&mdash;</span></li>
                     </ul>
+                    <div class="cs-committee" id="cs-committee" hidden></div>
                 </div>
                 <div class="cs-side" id="cs-side"></div>
             </div>
@@ -230,6 +233,28 @@
                             <button class="ps-star" title="Favorite this section"><svg class="icon"><use href="#i-star"></use></svg></button>
                         </div>
                         <div class="ps-body" id="activist-body"></div>
+                    </section>
+
+                    <!-- Volunteer Profile (Shared Contacts side only) -->
+                    <section class="page-section" id="sec-volunteer" hidden>
+                        <div class="ps-heading">
+                            <svg class="ps-chevron"><use href="#i-chevron-down"></use></svg>
+                            <svg class="ps-leadicon"><use href="#i-people"></use></svg>
+                            <span class="ps-title">Volunteer Profile</span>
+                            <button class="ps-star" title="Favorite this section"><svg class="icon"><use href="#i-star"></use></svg></button>
+                        </div>
+                        <div class="ps-body" id="volunteer-body"></div>
+                    </section>
+
+                    <!-- Supporter Groups (Shared Contacts side only) -->
+                    <section class="page-section" id="sec-supporter" hidden>
+                        <div class="ps-heading">
+                            <svg class="ps-chevron"><use href="#i-chevron-down"></use></svg>
+                            <svg class="ps-leadicon"><use href="#i-folder"></use></svg>
+                            <span class="ps-title">Supporter Groups</span>
+                            <button class="ps-star" title="Favorite this section"><svg class="icon"><use href="#i-star"></use></svg></button>
+                        </div>
+                        <div class="ps-body" id="supporter-body"></div>
                     </section>
 
                     <!-- Addresses (data-driven) -->
@@ -343,6 +368,12 @@
                     <div class="side-box" id="ids-box">
                         <div class="side-box-head">Voter File VANID</div>
                         <div class="side-box-body" id="ids-body"></div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="side-box">
+                        <div class="side-box-head">Actions</div>
+                        <div class="side-box-body" id="actions-body"></div>
                     </div>
 
                 </aside>

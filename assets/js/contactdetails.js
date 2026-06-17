@@ -61,17 +61,60 @@
        Renderers — each fills one section/box from the record `p`.
        ==================================================================== */
 
+    // Find the matching Voter File record for a Shared Contact (by name), so we
+    // can show the cross-link to the elector's Voter File VANID, like the real app.
+    function voterFileTwin(p) {
+        var vf = window.TRAINING_VOTERFILE || [];
+        for (var i = 0; i < vf.length; i++) {
+            if ((vf[i].name || "").toLowerCase() === (p.name || "").toLowerCase()) return vf[i];
+        }
+        return null;
+    }
+
+    function typedFact(value, type) {
+        if (!value) return "";
+        return esc(value) + ' <span class="cs-type">(' + esc(type) + ")</span>";
+    }
+
     function renderSummary(p, s) {
         var n = firstLast(p.name);
+        var shared = s === "shared";
         document.getElementById("cs-avatar").textContent = initials(p.name);
         document.getElementById("cs-name").textContent = n.display;
-        document.getElementById("cs-phone").innerHTML = p.phone ? esc(p.phone) : "No phone on file";
+
+        // Shared contacts label phone/email/address by type, like the real app.
+        document.getElementById("cs-phone").innerHTML = p.phone
+            ? (shared ? typedFact(p.phone, "Personal") : esc(p.phone))
+            : "No phone on file";
+
+        var emailLi = document.getElementById("cs-email-li");
+        if (p.email) {
+            document.getElementById("cs-email").innerHTML =
+                '<a href="#" onclick="return false">' + esc(p.email) + "</a>"
+                + (shared ? ' <span class="cs-type">(Personal)</span>' : "");
+            emailLi.hidden = false;
+        } else {
+            emailLi.hidden = true;
+        }
+
         document.getElementById("cs-address").innerHTML =
-            esc(p.address) + ", " + esc(p.city) + " " + esc(p.zip);
+            esc(p.address) + ", " + esc(p.city) + " " + esc(p.zip)
+            + (shared ? ' <span class="cs-type">(Home)</span>' : "");
+
+        // Follow button + committee context only make sense on the Shared side.
+        document.getElementById("cs-follow").hidden = !shared;
+        var committee = document.getElementById("cs-committee");
+        if (shared) {
+            committee.innerHTML = "You are viewing this person in <strong>098 Sample District</strong> &middot; "
+                + '<a href="#" onclick="return false">View person in a different committee</a>';
+            committee.hidden = false;
+        } else {
+            committee.hidden = true;
+        }
 
         var tag = document.getElementById("cs-tag");
         var label = "";
-        if (s === "shared") {
+        if (shared) {
             label = (p.contactTypes && p.contactTypes.length) ? p.contactTypes.join(" · ") : "Shared Contact";
         } else {
             // a simple "tier" cue based on whether we have an affiliation ID
@@ -84,8 +127,8 @@
 
         var sideBox = document.getElementById("cs-side");
         var info = SIDES[s] || {};
-        sideBox.textContent = info.name || (s === "shared" ? "Shared Contacts" : "Voter File");
-        sideBox.className = "cs-side " + (s === "shared" ? "shared" : "voterfile");
+        sideBox.textContent = info.name || (shared ? "Shared Contacts" : "Voter File");
+        sideBox.className = "cs-side " + (shared ? "shared" : "voterfile");
     }
 
     function renderBanner(s) {
@@ -148,12 +191,44 @@
         }).join("") + "</ul>";
     }
 
-    function renderAddress(p) {
+    function renderAddress(p, s) {
+        var label = s === "shared" ? "Home Address" : "Voting Address";
         document.getElementById("address-body").innerHTML =
             '<table class="cal-table"><tbody>'
-            + row("Voting Address", esc(p.address) + "<br>" + esc(p.city) + ", ON " + esc(p.zip))
-            + row("Mailing Address", '<span class="muted-note">Same as voting address</span>')
+            + row(label, esc(p.address) + "<br>" + esc(p.city) + ", ON " + esc(p.zip))
+            + row("Mailing Address", '<span class="muted-note">Same as ' + label.toLowerCase() + "</span>")
             + "</tbody></table>";
+    }
+
+    function renderVolunteer(p) {
+        document.getElementById("volunteer-body").innerHTML =
+            '<table class="cal-table"><tbody>'
+            + row("Volunteer Status", esc(p.volunteerStatus))
+            + row("Contact Types", (p.contactTypes || []).join(", "))
+            + row("Availability", '<span class="muted-note">Not recorded</span>')
+            + "</tbody></table>";
+    }
+
+    function renderSupporter(p) {
+        var box = document.getElementById("supporter-body");
+        var groups = [];
+        if (p.membership) groups.push(p.membership);
+        if (p.lastDonation) groups.push("Donor " + (p.lastDonation.date || "").slice(-4));
+        if (!groups.length) { box.innerHTML = emptyNote("This contact is not in any supporter groups."); return; }
+        box.innerHTML = '<ul class="chip-list">' + groups.map(function (g) {
+            return '<li class="chip">' + esc(g) + "</li>";
+        }).join("") + "</ul>";
+    }
+
+    function renderActions(p, s) {
+        var box = document.getElementById("actions-body");
+        var actions = s === "shared"
+            ? ["Save All", "Merge Duplicate", "Create User Account", "Remove from My Contacts", "Clone"]
+            : ["Save All", "Add to My List", "Merge Duplicate"];
+        box.innerHTML = '<div class="action-list">' + actions.map(function (a, i) {
+            return '<button class="btn ' + (i === 0 ? "btn-primary" : "") + ' btn-block" data-action="'
+                + esc(a) + '">' + esc(a) + "</button>";
+        }).join("") + "</div>";
     }
 
     function renderPhones(p) {
@@ -222,9 +297,17 @@
         var head = document.querySelector("#ids-box .side-box-head");
         var box = document.getElementById("ids-body");
         if (s === "shared") {
-            head.textContent = "Contact ID";
+            head.textContent = "VAN ID";
+            var twin = voterFileTwin(p);
+            var vfLink = twin
+                ? '<a href="' + "contactdetails.html?side=voterfile&id=" + encodeURIComponent(twin.vanId)
+                    + '">' + esc(twin.vanId) + "</a>"
+                : '<span class="muted-note">Not matched to the voter file</span>';
             box.innerHTML = '<table class="cal-table"><tbody>'
-                + row("Contact ID", esc(p.contactId))
+                + row("VAN ID", esc(p.contactId))
+                + row("Source", "Committee data entry")
+                + row("Date Created", "16/03/2024")
+                + row("Voter File VANID", vfLink)
                 + "</tbody></table>";
             return;
         }
@@ -256,13 +339,20 @@
         renderBanner(s);
         renderSurvey(p);
         renderActivist(p, s);
-        renderAddress(p);
+        renderAddress(p, s);
         renderPhones(p);
         renderEmail(p);
         renderVoting(p, s);
         renderVitals(p, s);
         renderDistricts(p);
         renderIds(p, s);
+        renderActions(p, s);
+
+        // Shared-only page sections
+        var sharedSide = s === "shared";
+        document.getElementById("sec-volunteer").hidden = !sharedSide;
+        document.getElementById("sec-supporter").hidden = !sharedSide;
+        if (sharedSide) { renderVolunteer(p); renderSupporter(p); }
 
         // record navigation labels
         document.getElementById("rn-pos").textContent = idx + 1;
@@ -362,6 +452,27 @@
     });
     document.getElementById("pf-save").addEventListener("click", function () {
         trainingAlert("Save All", "Saves every change made across all sections of this record.");
+    });
+
+    var ACTION_HELP = {
+        "Save All": "Saves every change made across all sections of this record.",
+        "Merge Duplicate": "Finds and merges another record that is the same person.",
+        "Create User Account": "Gives this contact a login to the database.",
+        "Remove from My Contacts": "Removes this person from your committee's Shared Contacts.",
+        "Clone": "Creates a new contact pre-filled from this one.",
+        "Add to My List": "Adds this person to your current My List."
+    };
+    document.getElementById("actions-body").addEventListener("click", function (e) {
+        var btn = e.target.closest("button[data-action]");
+        if (!btn) return;
+        var a = btn.getAttribute("data-action");
+        trainingAlert(a, ACTION_HELP[a] || "");
+    });
+    document.getElementById("cs-follow").addEventListener("click", function () {
+        this.classList.toggle("following");
+        this.innerHTML = this.classList.contains("following")
+            ? '<svg class="icon"><use href="#i-star"></use></svg> Following'
+            : '<svg class="icon"><use href="#i-star"></use></svg> Follow';
     });
     document.querySelectorAll(".rn-view").forEach(function (b) {
         b.addEventListener("click", function () {

@@ -16,11 +16,13 @@ interface, built so staff can learn the layout, navigation, and tools
 | `createalist.html` | The **Create A List** ("Create A New Search") wizard |
 | `quicklookup.html` | The **Quick Look Up** contact search + results grid |
 | `mylist.html` | The **My List** result view (after running a search) |
+| `contactdetails.html` | The **Contact Record** — an individual voter / contact profile |
 | `assets/css/liberalist.css` | All styling — the app chrome, sidebar, panels, CAL & QLU |
 | `assets/js/liberalist.js` | Shared chrome interactions — sidebar, dropdowns, search |
 | `assets/js/createalist.js` | Create A List behaviours — sections, favorites, preview |
 | `assets/js/quicklookup.js` | Quick Look Up — filtering, sorting (uses the dataset) |
 | `assets/js/mylist.js` | My List — stats, action toolbar, filter (uses the dataset) |
+| `assets/js/contactdetails.js` | Contact Record — renders one person's profile (uses the dataset) |
 | `assets/data/training-data.js` | **Master training dataset** — fictional people + survey data |
 
 ## Training dataset (`assets/data/training-data.js`)
@@ -89,9 +91,30 @@ These are the real pages linked from the menu — each becomes its own mock page
 - ~~Quick Look Up (`QuickLookUp.aspx`)~~ ✅ done
 - ~~Create a List (`CreateAList.aspx`)~~ ✅ done
 - ~~My List (`MyList.aspx`)~~ ✅ done
+- ~~Contact Record (`ContactsDetails.aspx`)~~ ✅ done
 
 The flow now connects: Main Menu → Create a List → **Run Search** lands on
-My List; the sidebar and menu cards link the pages together.
+My List; clicking a person's **name** in My List or Quick Look Up opens their
+**Contact Record**; the sidebar and menu cards link the pages together.
+
+### Contact Record (`contactdetails.html`)
+
+The individual profile for one person. It reads `?id=` and `?side=` from the
+URL (falling back to the active database side and the first record) and shows:
+
+- a **contact summary header** (avatar, name, an ID/contact-type tag, phone,
+  address) tinted for whichever side you're on;
+- collapsible **page sections** — Survey Responses (their affiliation ID,
+  volunteer status and dated **sign history**), Activist Codes, Addresses,
+  Phones, Email, Voting History and an editable Notes box;
+- a narrow column with the **record-navigation** panel (Standard / Script /
+  Form view modes, jump-by-ID, Next), **Favorites**, Vital Stats, Districts and
+  the **Voter File VANID** / Contact ID block;
+- a sticky **Save All** footer.
+
+Favorite stars pin a section into the Favorites box. Everything is read from
+the shared dataset, so the Voter File and Shared Contacts sides each show the
+fields that make sense for that side.
 - Grid View / Form View / Quick Mark (data entry)
 - Canvass Results, Turfs, Virtual Phone Bank
 - Counts and Crosstabs, Report Manager

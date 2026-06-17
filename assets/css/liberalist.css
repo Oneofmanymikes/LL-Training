@@ -511,3 +511,133 @@ body.tan-body .nav-tabs .tab.tan.active a { box-shadow: inset 0 3px 0 var(--tab-
 .desc-body dd { margin: 2px 0 0; color: var(--text); }
 .rd-blue { color: var(--blue9); font-weight: 600; }
 .rd-red { color: var(--olp-red); font-weight: 600; }
+
+/* ==========================================================================
+   Contact Record (ContactsDetails) — individual profile page
+   ========================================================================== */
+
+/* small button variant used in the record-nav panel */
+.btn-sm { padding: 5px 10px; font-size: 13px; }
+.btn-sm .icon { width: 14px; height: 14px; }
+
+/* ---- contact summary header ---- */
+.contact-summary {
+    display: flex; align-items: center; gap: 16px;
+    background: #fff; border: 1px solid var(--border); border-radius: 8px;
+    padding: 16px 18px; margin-bottom: 14px;
+}
+.cs-avatar {
+    flex: none; width: 56px; height: 56px; border-radius: 50%;
+    background: var(--blue9); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 700; letter-spacing: .5px;
+}
+body.tan-body .cs-avatar { background: var(--tab-tan); color: var(--tab-tan-text); }
+.cs-main { flex: 1; min-width: 0; }
+.cs-name-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.cs-name { margin: 0; font-size: 20px; font-weight: 700; }
+.cs-tag {
+    display: inline-block; padding: 2px 9px; border-radius: 12px;
+    background: #eef3f8; color: var(--blue9); font-size: 12px; font-weight: 600;
+}
+body.tan-body .cs-tag { background: #faf2df; color: var(--tab-tan-text); }
+.cs-facts { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 8px 0 0; padding: 0; }
+.cs-facts li { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); font-size: 13px; }
+.cs-facts .icon { width: 16px; height: 16px; color: var(--text-muted); }
+.cs-side {
+    flex: none; align-self: flex-start; padding: 4px 11px; border-radius: 5px;
+    font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px;
+}
+.cs-side.voterfile { background: #eef3f8; color: var(--blue9); }
+.cs-side.shared { background: #f3eede; color: var(--tab-tan-text); }
+
+/* ---- in-page tabs ---- */
+.profile-tabs {
+    list-style: none; display: flex; gap: 2px; padding: 0; margin: 0 0 14px;
+    border-bottom: 2px solid var(--border);
+}
+.profile-tabs li {
+    padding: 9px 16px; cursor: pointer; font-weight: 600; font-size: 14px;
+    color: var(--text-muted); border-bottom: 2px solid transparent; margin-bottom: -2px;
+}
+.profile-tabs li:hover { color: var(--text); }
+.profile-tabs li.active { color: var(--text); border-bottom-color: var(--olp-red); }
+
+/* ---- two-column profile body ---- */
+.profile-grid { display: grid; grid-template-columns: 1fr 320px; gap: 18px; align-items: start; }
+@media (max-width: 980px) { .profile-grid { grid-template-columns: 1fr; } }
+
+.ps-leadicon { width: 17px; height: 17px; color: var(--blue9); flex: none; }
+.page-section .ps-star { display: inline-flex; align-items: center; }
+.page-section .ps-star .icon { width: 17px; height: 17px; }
+
+/* survey responses */
+.survey-q { padding: 8px 0; border-top: 1px solid #f0f2f4; }
+.survey-q:first-child { border-top: none; }
+.survey-q-name { font-weight: 600; }
+.survey-q-count { color: var(--text-muted); font-weight: 400; font-size: 12px; }
+.survey-q-resp { margin-top: 3px; }
+
+.mini-table { width: 100%; border-collapse: collapse; margin-top: 6px; }
+.mini-table th {
+    text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .4px;
+    color: var(--text-muted); padding: 5px 8px; background: #f4f6f8; border-bottom: 1px solid var(--border);
+}
+.mini-table td { padding: 5px 8px; border-bottom: 1px solid #f3f4f6; font-size: 13px; }
+
+/* activist code chips */
+.chip-list { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 2px 0; }
+.chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #f1f4f7; border: 1px solid var(--border); border-radius: 14px;
+    padding: 3px 11px; font-size: 13px; font-weight: 600;
+}
+.chip-scope { color: var(--text-muted); font-weight: 400; font-size: 11px; }
+
+/* notes textarea */
+.notes-area {
+    width: 100%; border: 1px solid var(--border); border-radius: 5px;
+    padding: 8px 10px; font: inherit; font-size: 13px; resize: vertical;
+}
+
+/* ---- narrow column: record nav + side boxes ---- */
+.record-nav {
+    background: #38465b; color: #fff; border-radius: 8px; padding: 14px; margin-bottom: 14px;
+}
+.rn-count { font-size: 13px; color: #c7d0db; margin-bottom: 10px; }
+.rn-count strong { color: #fff; }
+.rn-jump label { display: block; font-size: 12px; color: #c7d0db; margin-bottom: 4px; }
+.rn-jump-row { display: flex; gap: 6px; margin-bottom: 12px; }
+.rn-jump-row input { flex: 1; min-width: 0; padding: 6px 8px; border: 1px solid #54627a; border-radius: 4px; background: #fff; }
+.rn-views { display: flex; gap: 4px; margin-bottom: 12px; }
+.rn-view {
+    flex: 1; padding: 6px 4px; border: 1px solid #54627a; background: #2e3b4e; color: #c7d0db;
+    border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 600;
+}
+.rn-view.active { background: #fff; color: var(--text); border-color: #fff; }
+.rn-actions-row { display: flex; gap: 6px; margin-top: 8px; }
+.rn-actions-row .btn { flex: 1; justify-content: center; }
+
+.side-box { background: #fff; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 14px; overflow: hidden; }
+.side-box-head {
+    display: flex; align-items: center; gap: 7px;
+    padding: 10px 13px; font-weight: 700; font-size: 13px;
+    background: #f4f6f8; border-bottom: 1px solid var(--border);
+}
+.side-box-head .icon { width: 16px; height: 16px; color: var(--blue9); }
+.side-box-body { padding: 10px 13px; }
+.side-box-body .cal-table td { padding: 5px 4px; font-size: 13px; }
+.side-box-body .cal-table td.van-label { width: 50%; color: var(--text-muted); }
+
+.fav-list, .side-box-body ul.fav-list { list-style: none; padding: 0; margin: 0; }
+.fav-list li { padding: 4px 0; }
+.fav-list li + li { border-top: 1px solid #f0f2f4; }
+
+/* ---- sticky save footer ---- */
+.profile-footer {
+    position: sticky; bottom: 0; z-index: 500;
+    display: flex; align-items: center; justify-content: space-between;
+    background: #fff; border-top: 1px solid var(--border);
+    padding: 10px 18px; box-shadow: 0 -1px 4px rgba(0,0,0,.06);
+}
+.pf-label { color: var(--text-muted); font-size: 13px; }

@@ -45,6 +45,10 @@
     function dataFor(side) {
         return (side === "shared" ? window.TRAINING_SHARED : window.TRAINING_VOTERFILE) || [];
     }
+    function profileHref(p, side) {
+        var id = side === "shared" ? p.contactId : p.vanId;
+        return "contactdetails.html?side=" + encodeURIComponent(side) + "&id=" + encodeURIComponent(id);
+    }
 
     // Render a single cell value (handles arrays + the donation object).
     function cell(p, key) {
@@ -102,11 +106,12 @@
             foot.textContent = "0 People";
             return;
         }
+        var side = window.LLTraining ? window.LLTraining.getSide() : "voterfile";
         rows.forEach(function (p) {
             var tr = document.createElement("tr");
             tr.innerHTML = cols.map(function (c) {
                 var text = cell(p, c.key);
-                if (c.link) return '<td><a href="#" onclick="return false">' + text + "</a></td>";
+                if (c.link) return '<td><a href="' + profileHref(p, side) + '">' + text + "</a></td>";
                 return "<td>" + text + "</td>";
             }).join("");
             body.appendChild(tr);

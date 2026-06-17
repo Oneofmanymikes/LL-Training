@@ -39,6 +39,10 @@
     function side() { return window.LLTraining ? window.LLTraining.getSide() : "voterfile"; }
     function dataFor(s) { return (s === "shared" ? window.TRAINING_SHARED : window.TRAINING_VOTERFILE) || []; }
     function fmt(n) { return n.toLocaleString("en-CA"); }
+    function profileHref(p, s) {
+        var id = s === "shared" ? p.contactId : p.vanId;
+        return "contactdetails.html?side=" + encodeURIComponent(s) + "&id=" + encodeURIComponent(id);
+    }
 
     function cell(p, key) {
         var v = p[key];
@@ -90,10 +94,11 @@
             foot.textContent = "0 People";
             return;
         }
+        var s = side();
         body.innerHTML = rows.map(function (p) {
             return "<tr>" + cols.map(function (c) {
                 var text = cell(p, c.key);
-                return c.link ? '<td><a href="#" onclick="return false">' + text + "</a></td>"
+                return c.link ? '<td><a href="' + profileHref(p, s) + '">' + text + "</a></td>"
                               : "<td>" + text + "</td>";
             }).join("") + "</tr>";
         }).join("");

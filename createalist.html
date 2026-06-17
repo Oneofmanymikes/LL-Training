@@ -560,13 +560,17 @@
                             <div class="ps-body">
                                 <table class="cal-table"><tbody>
                                     <tr><td class="van-label">Question</td><td>
-                                        <select class="field"><option></option>
+                                        <select class="field" id="sq-question">
+                                            <option value=""></option>
                                             <option>2029 Affiliation: ID by Volunteer</option>
                                             <option>2029 Volunteer: Volunteer Status</option>
-                                            <option>2026 Action: Sign Request</option>
-                                            <option>Show Archived...</option>
+                                            <option>2026 Action: BE - Sign Request</option>
+                                            <option>2025 Affiliation: ID by Volunteer</option>
+                                            <option value="archived">Show Archived...</option>
                                         </select></td></tr>
                                 </tbody></table>
+                                <!-- responses + contact filters appear here once a question is chosen -->
+                                <div id="sq-detail" hidden></div>
                             </div>
                         </div>
 

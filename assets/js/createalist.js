@@ -94,4 +94,85 @@
             alert("Search complete — results would now load into My List.");
         }
     });
+
+    /* ---- Survey Questions: reveal responses + filters on selection ---- */
+    // Each question maps to its own set of response options.
+    var SURVEY_QUESTIONS = {
+        "2029 Affiliation: ID by Volunteer": [
+            "Liberal", "Possible Liberal", "PC", "NDP", "Green", "Not Liberal",
+            "Not PC", "Undecided", "Won't Say", "Not Voting", "Independent"
+        ],
+        "2025 Affiliation: ID by Volunteer": [
+            "Liberal", "Possible Liberal", "PC", "NDP", "Green", "Not Liberal",
+            "Not PC", "Undecided", "Won't Say", "Not Voting", "Independent"
+        ],
+        "2029 Volunteer: Volunteer Status": [
+            "Yes, Sign Me Up", "No", "Engage Later", "Current Volunteer"
+        ],
+        "2026 Action: BE - Sign Request": [
+            "Sign requested", "Large sign requested", "Sign Refused", "Call to Confirm",
+            "Sign Installed", "Large sign installed", "Sign Maintenance Req",
+            "Maintenance Complete", "Wrong Riding", "Sign Removal Request", "Sign Removed"
+        ]
+    };
+
+    function dateRangeSelect() {
+        return '<select class="field"><option>--Select a Date Range Type--</option>'
+            + '<option>Between</option><option>In the range of</option>'
+            + '<option>In the month of</option></select>';
+    }
+
+    var sqSelect = document.getElementById("sq-question");
+    var sqDetail = document.getElementById("sq-detail");
+
+    if (sqSelect && sqDetail) {
+        sqSelect.addEventListener("change", function () {
+            var q = sqSelect.value;
+            var responses = SURVEY_QUESTIONS[q];
+
+            if (!responses) {            // blank or "Show Archived..."
+                sqDetail.hidden = true;
+                sqDetail.innerHTML = "";
+                return;
+            }
+
+            var checks = responses.map(function (r) {
+                return '<label class="fieldCheckRadio"><input type="checkbox"> ' + r + "</label>";
+            }).join("");
+
+            sqDetail.innerHTML =
+                '<table class="cal-table"><tbody>'
+                + '<tr><td class="van-label">Responses</td><td>'
+                +   '<div class="result-grid">' + checks + "</div></td></tr>"
+                + '<tr><td class="van-label">Input Type</td><td>'
+                +   '<select class="field"><option></option><option>Manual</option>'
+                +   '<option>Bulk</option><option>VPB</option><option>Mobile</option>'
+                +   '<option>Website</option></select></td></tr>'
+                + '<tr><td class="van-label">Contact Type</td><td>'
+                +   '<select class="field"><option></option><option>Phone</option>'
+                +   '<option>Walk</option><option>Event</option><option>SMS Text</option>'
+                +   '<option>Personal Email</option></select></td></tr>'
+                + '<tr><td class="van-label">Canvassed By</td><td>'
+                +   '<input class="field" type="text"></td></tr>'
+                + '<tr><td class="van-label">Entered By</td><td>'
+                +   '<select class="field"><option></option><option>Doe, Jane</option>'
+                +   '<option>Smith, John</option><option>Volunteer, A</option></select></td></tr>'
+                + '<tr><td class="van-label">Date Canvassed</td><td>' + dateRangeSelect() + "</td></tr>"
+                + '<tr><td class="van-label">Date Entered</td><td>' + dateRangeSelect() + "</td></tr>"
+                + '<tr><td class="van-label">Committee</td><td>'
+                +   '<select class="field"><option></option>'
+                +   '<option>098 Sample District</option><option>022 Sample West</option></select></td></tr>'
+                + '<tr><td></td><td><label class="fieldCheckRadio">'
+                +   '<input type="checkbox"> Include most recent response only</label></td></tr>'
+                + '<tr><td class="van-label">Origin</td><td>'
+                +   '<select class="field"><option></option>'
+                +   '<option>Include only data originating from this database</option>'
+                +   '<option>Include only data originating from other databases</option></select></td></tr>'
+                + "</tbody></table>";
+            sqDetail.hidden = false;
+
+            // selecting a question marks the section as having a value
+            sqDetail.closest(".page-section").classList.add("highlighted");
+        });
+    }
 })();

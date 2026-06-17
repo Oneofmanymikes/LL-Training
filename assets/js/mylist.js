@@ -38,6 +38,9 @@
 
     function side() { return window.LLTraining ? window.LLTraining.getSide() : "voterfile"; }
     function dataFor(s) { return (s === "shared" ? window.TRAINING_SHARED : window.TRAINING_VOTERFILE) || []; }
+    // The list this view shows = the saved search result (if one applies to this
+    // side), otherwise the full file. Shared via assets/js/currentlist.js.
+    function baseList(s) { return window.LLList ? window.LLList.getList(s) : dataFor(s); }
     function fmt(n) { return n.toLocaleString("en-CA"); }
     function profileHref(p, s) {
         var id = s === "shared" ? p.contactId : p.vanId;
@@ -57,7 +60,7 @@
     function filtered() {
         var last = (document.getElementById("ml-last").value || "").trim().toLowerCase();
         var first = (document.getElementById("ml-first").value || "").trim().toLowerCase();
-        return dataFor(side()).filter(function (p) {
+        return baseList(side()).filter(function (p) {
             var n = lastFirst(p.name);
             if (last && n.last.indexOf(last) !== 0) return false;
             if (first && n.first.indexOf(first) !== 0) return false;
@@ -113,6 +116,24 @@
             + (side() === "shared" ? "the committee's editable contacts." : "the voter file.");
     }
 
+    function renderDescription() {
+        var body = document.getElementById("desc-body");
+        if (!body) return;
+        var lines = window.LLList ? window.LLList.describe(side()) : [];
+        if (!lines.length) {
+            body.innerHTML = "<strong>Step 1 — New Search</strong>"
+                + '<dl class="indented"><dt>All records</dt>'
+                + "<dd>No criteria applied — showing the full "
+                + (side() === "shared" ? "Shared Contacts list." : "voter file.") + "</dd></dl>";
+            return;
+        }
+        body.innerHTML = "<strong>Step 1 — New Search</strong>" + lines.map(function (l) {
+            return '<dl class="indented"><dt>' + l.label + "</dt>"
+                + '<dd><span class="rd-blue">' + l.label + '</span> = <span class="rd-red">'
+                + l.value + "</span></dd></dl>";
+        }).join("");
+    }
+
     function rebuild() {
         var cols = COLUMNS[side()] || COLUMNS.voterfile;
         var rows = filtered();
@@ -120,6 +141,7 @@
         renderRows(rows, cols);
         renderStats(rows);
         renderBanner();
+        renderDescription();
     }
 
     // Expandable description
@@ -172,10 +194,13 @@
         "Map": "Create a printable map of the addresses on this list.",
         "Messages": "Send a text-message (SMS) campaign to this list."
     };
+    // Tools that open a real built-out training page (operate on this list).
+    var TOOL_PAGE = { "Counts": "counts.html", "Calls": "phonebank.html", "Cut Turf": "turf.html" };
     document.getElementById("mylist-toolbar").addEventListener("click", function (e) {
         var btn = e.target.closest(".tool-btn");
         if (!btn) return;
         var tool = btn.getAttribute("data-tool");
+        if (TOOL_PAGE[tool]) { location.href = TOOL_PAGE[tool]; return; }
         alert(tool + "\n\n" + (TOOL_HELP[tool] || "") + "\n\n(Training mock — no data is changed.)");
     });
 

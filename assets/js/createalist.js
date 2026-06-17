@@ -89,8 +89,33 @@
 
     var runBtn = document.getElementById("run-btn");
     if (runBtn) runBtn.addEventListener("click", function () {
-        if (confirm("Run Search?\n\nThis would clear your current list of 1,802 people and load "
-            + "the search results into My List. (Training mock — no data is changed.)")) {
+        // Build the search query from the criteria the trainee selected, so the
+        // result that loads into My List actually reflects this search.
+        var query = { side: window.LLTraining ? window.LLTraining.getSide() : "voterfile" };
+
+        var q = sqSelect ? sqSelect.value : "";
+        if (q && SURVEY_QUESTIONS[q] && sqDetail && !sqDetail.hidden) {
+            var responses = Array.prototype.map.call(
+                sqDetail.querySelectorAll('.result-grid input[type="checkbox"]:checked'),
+                function (cb) { return cb.parentElement.textContent.trim(); });
+            if (responses.length) query.survey = { question: q, responses: responses };
+        }
+
+        if (acPicker) {
+            var codes = Array.prototype.map.call(
+                acPicker.querySelectorAll('.ac-code input[type="checkbox"]:checked'),
+                function (cb) {
+                    var label = cb.parentElement.cloneNode(true);
+                    var scope = label.querySelector(".ac-scope");
+                    if (scope) scope.remove();
+                    return label.textContent.trim();
+                });
+            if (codes.length) query.activistCodes = codes;
+        }
+
+        if (confirm("Run Search?\n\nThis would clear your current list and load the search "
+            + "results into My List. (Training mock — no data is changed.)")) {
+            if (window.LLList) window.LLList.setQuery(query);
             location.href = "mylist.html";   // results load into My List
         }
     });

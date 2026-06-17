@@ -1,0 +1,101 @@
+Voter ID,First Name,Last Name,Phone,Email,Donor Records,Voter ID Records,Sign Requests,Volunteer Status
+LL-770487,Joseph,Johnson,(555) 555-4506,,Declined,Do Not Contact,,Inactive
+LL-542417,John,Johnson,(555) 555-1535,,$50,Do Not Contact,Large Sign,Interested
+LL-571029,Kimberly,Singh,(555) 555-0106,kimberly.singh90@example.com,$100,Strong Support,Requested - Pending,Canvasser
+LL-207175,Barbara,Harris,(555) 555-1584,barbara.harris78@example.org,,Against,Removed,
+LL-496922,William,Scott,(555) 555-4803,william.scott47@example.net,Declined,,,Lead Volunteer
+LL-338968,Emily,Garcia,(555) 555-3814,emily.garcia36@example.org,$250,Strong Support,Lawn Sign,Canvasser
+LL-319684,Paul,Hall,(555) 555-1169,paul.hall69@example.com,$25,Against,Large Sign,Active
+LL-771088,Mark,Baker,(555) 555-5313,mark.baker30@example.com,$250,Lean Against,Requested - Delivered,
+LL-321231,Kenneth,Wilson,(555) 555-8179,,$25,Support,Removed,Data Entry
+LL-375504,Jason,Bailey,(555) 555-9560,jason.bailey18@example.com,,,,
+LL-757924,Christopher,Patel,(555) 555-6916,christopher.patel49@example.org,"$1,000",Do Not Contact,Requested - Delivered,Data Entry
+LL-112038,Joseph,Baker,(555) 555-8797,,$500,Strong Support,Window Sign,
+LL-857168,Dorothy,Allen,(555) 555-2927,dorothy.allen81@example.com,Lapsed,Do Not Contact,Declined,Interested
+LL-260263,Melissa,Carter,(555) 555-2646,melissa.carter1@example.net,"$1,000",,,Canvasser
+LL-972064,Donna,Thomas,(555) 555-0949,,"$1,000",,Removed,
+LL-234628,Aisha,Scott,(555) 555-2705,aisha.scott55@example.net,$50 (monthly),Support,Requested - Delivered,Phone Bank
+LL-804314,Melissa,Lewis,(555) 555-8479,,,Moved,Removed,Interested
+LL-717024,Mark,Smith,(555) 555-1163,,,Undecided,,Data Entry
+LL-349565,Kimberly,Nelson,(555) 555-7953,kimberly.nelson93@example.com,$100 (monthly),Moved,Window Sign,Interested
+LL-922733,Aisha,Singh,(555) 555-6669,aisha.singh85@example.com,$500,Lean Against,Window Sign,
+LL-806073,Richard,Brown,(555) 555-6596,richard.brown32@example.com,$50 (monthly),Against,,Phone Bank
+LL-292401,Kimberly,Robinson,(555) 555-4092,kimberly.robinson57@example.com,$50 (monthly),,,Lead Volunteer
+LL-666847,Mary,Garcia,(555) 555-3872,mary.garcia62@example.org,$500,,,Phone Bank
+LL-102260,Deborah,Taylor,(555) 555-7454,deborah.taylor94@example.net,$50 (monthly),Against,,Interested
+LL-411120,Betty,Brown,(555) 555-9489,betty.brown96@example.com,,Moved,Window Sign,Data Entry
+LL-994141,Liam,Hernandez,(555) 555-0931,,,Support,Large Sign,
+LL-697347,Ashley,Nguyen,,ashley.nguyen54@example.com,$100 (monthly),Do Not Contact,Lawn Sign,Active
+LL-314181,Kenneth,Thomas,(555) 555-4351,kenneth.thomas83@example.net,$250,,,Driver
+LL-751332,Richard,Jones,(555) 555-8808,richard.jones17@example.org,,Support,Lawn Sign,Active
+LL-265409,Jeffrey,Kim,(555) 555-8900,jeffrey.kim84@example.net,Lapsed,Do Not Contact,Requested - Delivered,Lead Volunteer
+LL-208618,Sarah,Taylor,(555) 555-1891,sarah.taylor71@example.net,$100,Moved,Requested - Pending,Canvasser
+LL-313487,Dorothy,Allen,(555) 555-8004,dorothy.allen12@example.com,$100,,,Canvasser
+LL-908577,Thomas,Green,(555) 555-4291,thomas.green71@example.org,$50 (monthly),,,
+LL-824586,Karen,Wright,(555) 555-0590,,$25,,Requested - Delivered,Canvasser
+LL-934794,Jennifer,Bailey,(555) 555-5862,,$50 (monthly),Lean Against,Declined,
+LL-348237,Christopher,Singh,(555) 555-2900,christopher.singh23@example.com,$250,Lean Against,Requested - Pending,Active
+LL-266931,Susan,Harris,(555) 555-0634,susan.harris26@example.com,"$1,000",Undecided,Requested - Delivered,Interested
+LL-333752,Patricia,Nelson,(555) 555-3164,patricia.nelson9@example.org,$100,Undecided,Removed,Phone Bank
+LL-812526,Olivia,Perez,,olivia.perez23@example.org,$100,,,Inactive
+LL-555673,Brian,Campbell,(555) 555-5139,brian.campbell15@example.net,$100 (monthly),Support,Requested - Delivered,
+LL-843215,Sharon,Smith,(555) 555-8518,sharon.smith88@example.net,Declined,Support,Lawn Sign,Phone Bank
+LL-173372,Kevin,Flores,(555) 555-5143,kevin.flores93@example.com,$50 (monthly),Lean Support,Large Sign,Canvasser
+LL-521947,Emily,Scott,(555) 555-2085,emily.scott49@example.net,$25,Moved,Declined,Active
+LL-525800,James,Martin,(555) 555-4700,james.martin78@example.net,"$1,000",Against,Window Sign,Lead Volunteer
+LL-324082,Diego,Walker,(555) 555-2780,diego.walker66@example.org,$100 (monthly),Undecided,,Interested
+LL-805477,Donna,Anderson,(555) 555-3262,donna.anderson32@example.com,$100 (monthly),,Window Sign,Phone Bank
+LL-760356,Matthew,Rivera,(555) 555-6291,matthew.rivera19@example.com,,,Large Sign,Interested
+LL-284430,Fatima,Robinson,(555) 555-0822,,"$1,000",Do Not Contact,Removed,Inactive
+LL-432711,Jeffrey,Flores,(555) 555-8270,jeffrey.flores58@example.net,Declined,Against,Window Sign,Active
+LL-888295,Ashley,Kim,(555) 555-4543,ashley.kim63@example.net,$100,Against,,Active
+LL-345884,Paul,Perez,(555) 555-5238,paul.perez18@example.com,$500,Strong Support,Requested - Pending,
+LL-535020,Timothy,Perez,(555) 555-8890,timothy.perez27@example.com,$500,Moved,,Inactive
+LL-498858,Mohammed,Smith,(555) 555-5763,mohammed.smith54@example.org,Declined,Do Not Contact,Declined,Interested
+LL-611945,Mark,Moore,(555) 555-7140,mark.moore44@example.org,$500,Strong Support,Window Sign,
+LL-752483,Olivia,Johnson,(555) 555-6455,,$500,Strong Support,Window Sign,
+LL-152727,Dorothy,Harris,(555) 555-5363,dorothy.harris44@example.org,$500,Lean Support,Large Sign,Active
+LL-975467,William,Walker,(555) 555-0317,william.walker45@example.com,,,,Interested
+LL-309044,Robert,Flores,(555) 555-2496,,$50,Against,Requested - Delivered,Canvasser
+LL-275939,Joseph,Roberts,(555) 555-2683,,$100,Moved,Large Sign,Phone Bank
+LL-849747,Margaret,Jones,(555) 555-9700,,$100,Moved,,Inactive
+LL-920652,Jennifer,Thompson,(555) 555-8728,jennifer.thompson9@example.org,$250,,Large Sign,Driver
+LL-210665,Sharon,White,(555) 555-7532,sharon.white23@example.org,Lapsed,Lean Support,Declined,Data Entry
+LL-912270,Mohammed,Robinson,(555) 555-7136,mohammed.robinson35@example.net,$50,,Requested - Delivered,Driver
+LL-355709,Cynthia,Torres,(555) 555-9999,cynthia.torres4@example.org,$250,Strong Support,Window Sign,Interested
+LL-472060,Dorothy,Perez,(555) 555-4581,dorothy.perez36@example.net,$50 (monthly),Support,,Interested
+LL-855053,Timothy,Young,(555) 555-9096,timothy.young61@example.net,"$1,000",Against,,
+LL-408528,Mark,Sanchez,(555) 555-3986,mark.sanchez48@example.net,$50 (monthly),Undecided,Large Sign,Data Entry
+LL-446859,Amanda,Hall,(555) 555-7434,,$50,Undecided,,Data Entry
+LL-899213,Lisa,Gonzalez,(555) 555-3545,lisa.gonzalez93@example.org,$50 (monthly),Moved,Requested - Delivered,
+LL-973074,Matthew,Jackson,(555) 555-3727,matthew.jackson2@example.org,$25,Lean Support,,
+LL-680238,Emily,Hall,(555) 555-2068,emily.hall14@example.org,$100 (monthly),Lean Support,Window Sign,Driver
+LL-561865,Carol,Lopez,(555) 555-0841,carol.lopez15@example.org,$500,Against,,Inactive
+LL-760021,Michael,Martinez,(555) 555-2444,michael.martinez11@example.org,,Do Not Contact,Large Sign,Inactive
+LL-725084,Mark,Roberts,(555) 555-8561,mark.roberts39@example.org,$500,Lean Support,Declined,Inactive
+LL-163156,Richard,Carter,(555) 555-3404,,$50,Strong Support,Removed,
+LL-264136,James,Clark,(555) 555-7381,,$100,Lean Support,Window Sign,
+LL-820775,Sandra,Richardson,(555) 555-4334,sandra.richardson76@example.net,$50,Lean Against,,Data Entry
+LL-335729,Karen,Cooper,(555) 555-4352,karen.cooper8@example.com,$100,Moved,Declined,Active
+LL-560485,Jessica,Robinson,(555) 555-4982,jessica.robinson65@example.org,"$1,000",,Declined,
+LL-553014,Michelle,Hill,,michelle.hill87@example.com,$100 (monthly),Moved,,Lead Volunteer
+LL-961322,Paul,Torres,(555) 555-0659,paul.torres61@example.com,"$1,000",Lean Support,,Inactive
+LL-557058,Priya,Garcia,(555) 555-7700,priya.garcia42@example.org,$25,Undecided,Large Sign,Driver
+LL-402218,Stephanie,Chen,,stephanie.chen41@example.com,,Lean Against,Removed,
+LL-789606,Noah,Robinson,,noah.robinson47@example.net,"$1,000",Against,,Interested
+LL-380028,Thomas,Richardson,(555) 555-4719,,Lapsed,Moved,Requested - Pending,
+LL-425845,Mary,Scott,,mary.scott60@example.com,Lapsed,Strong Support,Window Sign,Active
+LL-633590,Paul,Clark,(555) 555-7905,paul.clark59@example.com,$500,Support,Declined,Data Entry
+LL-882544,Sarah,Murphy,(555) 555-1143,sarah.murphy44@example.org,$50 (monthly),Lean Support,,Active
+LL-861319,Joshua,Kim,(555) 555-9616,joshua.kim63@example.net,"$1,000",Do Not Contact,Window Sign,Canvasser
+LL-448588,Noah,Harris,(555) 555-7460,noah.harris90@example.com,$500,Support,Large Sign,
+LL-433632,Aisha,Rivera,(555) 555-6246,aisha.rivera84@example.net,"$1,000",,,Data Entry
+LL-718849,Kevin,Murphy,(555) 555-1644,kevin.murphy13@example.org,"$1,000",,,Phone Bank
+LL-786587,Karen,Jones,(555) 555-7692,karen.jones44@example.org,$500,,Lawn Sign,Lead Volunteer
+LL-659543,Edward,Lee,(555) 555-7994,,Lapsed,Lean Support,Requested - Pending,
+LL-555052,Richard,Carter,(555) 555-1646,richard.carter39@example.net,,Undecided,,Active
+LL-475876,Melissa,Ramirez,(555) 555-2385,melissa.ramirez73@example.org,$25,Strong Support,,
+LL-739098,Edward,Flores,(555) 555-3945,edward.flores19@example.net,Lapsed,Lean Support,Window Sign,Active
+LL-799233,Mary,Bailey,(555) 555-7622,mary.bailey70@example.net,"$1,000",Undecided,Declined,Active
+LL-769975,Jason,Hall,(555) 555-4097,jason.hall26@example.org,"$1,000",,Requested - Pending,Phone Bank
+LL-699704,Amanda,Torres,(555) 555-4847,amanda.torres3@example.org,Lapsed,Lean Against,Requested - Delivered,
